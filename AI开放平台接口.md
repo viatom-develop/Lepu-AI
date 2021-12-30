@@ -22,7 +22,7 @@
    | 参数名 | 是否必须 | 类型（长度）| 说明 |
    | ---- | ---- |---- | ---- |
    | secret | 是 | string | 乐普给出 |
-   | access_token | 是 | string | 乐普给出, 不同业务使用不同的access_token |
+   | access-token | 是 | string | 乐普给出, 不同业务使用不同的access_token |
    | language | 是 | string | zh-CN  / en-US |
 
 5. 公共出参
@@ -47,8 +47,8 @@
  **请求体**
  | 参数名 | 是否必须 | 类型（长度）| 说明 |
  | ---- | ---- |---- | ---- |
- | ecgFile | 否 | .txt/.dat | 原始文件，可不传，参考AI分析接口ECG文件协议 |
- | analyseFile | 是 | .txt | 乐普标准单导ECG文件，优先使用此文件作为分析文件，参考AI分析接口ECG文件协议 |
+ | ecg_file | 否 | .txt/.dat | 原始文件，可不传，参考AI分析接口ECG文件协议 |
+ | analyse_file | 是 | .txt | 乐普标准单导ECG文件，优先使用此文件作为分析文件，参考AI分析接口ECG文件协议 |
  | ecg_info | 是 | string | JSON字符串，见附录 ecgInfo |
 
  **响应参数**
