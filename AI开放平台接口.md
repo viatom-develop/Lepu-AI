@@ -216,7 +216,8 @@
         "id_number": "44301xxx", // 身份证号码,非必填。对于签字报告必填
         "phone": "18888555000" // 非必填
         },
-    "analysis_type": "1", // 1短程，2长程，3签字报告
+    "analysis_type": "1", // 1短程，2长程
+    "service_ability": "1", // 1 AI分析， 2 医生签字报告
     "access_token": "shaxxxx", // 对应服务能力的AccessToken
     "application_id": "com.lepu.lepucare", // 应用id
     "device": {
