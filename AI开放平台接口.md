@@ -353,53 +353,124 @@
    | 80003 | 分析异常         |
    | 80004 | 等待上传分析文件 |
 4. AI分析结果详情
-   | 参数名                                 | 必须          | 类型（长度）       | 说明                       |
-   | -------------------------------------- | ------------- | ------------------ | -------------------------- |
-   | dataStartTime *                        | 是            | string($date-time) | 数据开始时间               |
-   | dataEndTime *                          | 是            | string($date-time) | 数据结束时间               |
-   | reportTime *                           | 是            | string($date-time) | 报告时间                   |
-   | totalDuration *                        | 是            | integer($int32)    | 总时长 单位秒              |
-   | validDuration *                        | 是            | integer($int32)    | 有效时长 单位秒            |
-   | beatCount*                             | 是            | integer($int32)    | 心博总数                   |
-   | abnormalBeatPercent*                   | 是            | integer($int32)    | 异常心博占比 百分比        |
-   | afBeatPercent*                         | 是            | integer($int32)    | 房颤房颤占比               |
-   | maxHeartRate *                         | 是            | integer($int32)    | 最大心率                   |
-   | maxHeartRateTime *                     | 是            | string($date-time) | 最大心率发生时间           |
-   | minHeartRate *                         | 是            | integer($int32)    | 最小心率                   |
-   | minHeartRateTime *                     | 是            | string($date-time) | 最小心率发生时间           |
-   | averageHeartRate *                     | 是            | integer($int32)    | 平均心率                   |
-   | maxLongRRPeriod *                      | 是            | number($float)     | 最长RR间期时长             |
-   | longRRPeriodCount *                    | 是            | integer($int32)    | 长RR间期数量               |
-   | maxLongAsystoleTime *                  | 是            | string($date-time) | 最长停搏发生时间           |
-   | asystoleRRPeriodCount                  | 是            | integer($int32)    | 停搏数量                   |
-   | atrialBeatCount                        | 是            | integer($int32)    | 室上性心博数量             |
-   | atrialPermatureBeatCount               | 是            | integer($int32)    | 室上性早搏数量             |
-   | coupleAtrialPermatureCount*            | 是            | integer($int32)    | 室上性早搏成对             |
-   | atrialBigeminyCount                    | 是            | integer($int32)    | 室上性二联律               |
-   | atrialTrigeminyCount                   | 是            | integer($int32)    | 室上性三联律               |
-   | atrialTachycardiaCount *               | 是            | integer($int32)    | 室上性心动过速数量         |
-   | longestAtrialTachycardiaDuration *     | 是            | number($float)     | 最长室上性心动过速持续时间 |
-   | longestAtrialTachycardiaOccurTime *    | 是            | string($date-time) | 最长室上性心动过速发生时间 |
-   | ventricularBeatCount *                 | 是            | integer($int32)    | 室性心博总数               |
-   | ventricularPermatureBeatCount*         | 是            | integer($int32)    | 室性早搏数量               |
-   | coupleVentricularPermatureCount *      | 是            | integer($int32)    | 室性早搏成对               |
-   | ventricularBigeminyCount *             | 是            | integer($int32)    | 室性二联律数量             |
-   | ventricularTrigeminyCount *            | 是            | integer($int32)    | 室性三联律数量             |
-   | ventricularTachycardiaCount *          | 是            | integer($int32)    | 室性心动过速数量           |
-   | longestVentricularTachycardiaDuration* | 是            | integer($int32)    | 最长室性心动过速持续时间   |
-   | longestVentricularTachycardiaOccurTime | 是            | integer($int32)    | 最长室性心动过速发生时间   |
-   | diagnoseList *                         | 是            | [...]              | 诊断内容列表               |
-   |                                        | code*         | string             | 诊断 code                  |
-   |                                        | diagnoseInfo* | string             | 诊断信息                   |
-   | eventList*                             | 是            | [...]              | 事件片段                   |
-   |                                        | endPos*       | integer($int64)    | 结束位置                   |
-   |                                        | eventCode*    | string             | 片段Code                   |
-   |                                        | eventName*    | string             | 描述                       |
-   |                                        | startPos*     | integer($int64)    | 开始位置                   |
-   |                                        | eventTime*    | String             | 事件时间                   |
-   | allEventList                           | 是            | [...]              | 事件列表                   |
-   |                                        | endPos*       | integer($int64)    | 结束位置                   |
-   |                                        | eventCode*    | string             | 片段Code                   |
-   |                                        | eventName*    | string             | 描述                       |
-   |                                        | startPos*     | integer($int64)    | 开始位置                   |
-   |                                        | eventTime*    | String             | 事件时间                   |
+
+| |  key |	中文说明 |	类型 |	备注 |	
+| ---- | ---- |	---- |	---- | ---- |	
+| 报告返回对象  |	  |	 |
+| baseInfo|  |	|  | 基本信息 |
+| |	testId |	检查id |	string |	用于消费者端截取片段数据|
+| |	sample |	采样率 |	int |	用于消费者端截取片段数据|
+| |	analysisTime |	分析时间 |	string |
+| |	analysisDuration |	分析时长 |	int |	单位秒|
+| |	name |	姓名 |	string |	这些基本信息，以消费者端的病人信息为准|
+| |	sex |	性别 |	string |
+| |	age |	年龄 |	int |
+| |	createTime |	记录日期 |	string |
+| |	startTime |	数据开始时间 |	string |
+| |	endTime |	数据结束时间 |	string |
+| hrInfo  |	  |	心率统计|
+| |	beatCount |	心博总数 |	int |
+| |	averageHeartRate |	平均心率 |	int |
+| |	maxHeartRate |	最快（大）心率 |	int |
+| |	minHeartRate |	最慢（小）心率 |	int |
+| |	longRRPeriodAt |	最长RR间期发生时间 |	string |
+| |	longRRPeriodCount |	长RR（间期）数量 |	int |
+| |	maxLongRRPeriod |	最长RR间期时长 |	int |
+| |	asystoleRRPeriodCount |	停搏数量 |	int |
+| |	abnormalBeatCount |	异常心博数 |	int |	签字报告|
+| |	ventricularBeatCount |	室性心博 |	int |	签字报告|
+| |	atrialBeatCount |	室上性心博 |	int |	签字报告|
+| hrvInfo  |  |  |	| 心率变异统计|
+| 心率变异 |	sdnn |	SDNN |	double |
+| |	sdnnIndex |	SDNN Index |	double |
+| |	rmssd |	RMSSD |	double |
+| |	pnn50 |	PNN50 |	double |
+| |	triangularIndex |	三角指数 |	double |
+| |	hf |	HF |	double |
+| |	lf |	LF |	double |
+| |	vlf |	VLF |	double |
+| afInfo  |  |  |	| 房颤房扑事件|
+| |	afBeatPercent |	（房扑）房颤占比 |	float |
+| ventricularInfo  |  |  |	| 室性节律|
+| 室性 |	ventricularBeatCount |	室性心博总数 |	int |
+| |	ventricularPermatureBeatCount |	室性早搏数量（室早单发） |	int |
+| |	coupleVentricularPermatureCount |	室性早搏成对（成对室早） |	int |
+| |	ventricularBigeminyCount |	室性二联律数量 |	int |
+| |	ventricularTrigeminyCount |	室性三联律数量 |	int |
+| |	ventricularTachycardiaCount |	室性心动过速数量（室速出现的阵数） |	int |
+| |	longestVentricularTachycardiaDuration |	最长室性心动过速持续时间 |	int |
+| |	longestVentricularTachycardiaOccurTime |	最长室性心动过速发生时间 |	string |
+| |	longestVentricularTachycardiaCount |	最长室速心博数 |	int |	签字报告|
+| |	maxVentricularPermatureHeartRate |	室速最高心率 |	int |	签字报告|
+| supraventricularInfo  |  |  |	| 室上性节律|
+| 室上性 |	atrialBeatCount |	室上性心博总数 |	int |
+| |	atrialPermatureBeatCount |	室上性早搏数量（室上早单发） |	int |
+| |	coupleAtrialPermatureCount |	室上性早搏成对（成对室上早） |	int |
+| |	atrialBigeminyCount |	室上性二联律数量 |	int |
+| |	atrialTrigeminyCount |	室上性三联律数量 |	int |
+| |	atrialTachycardiaCount |	室上性心动过速数量（室上速出现的阵数） |	int |
+| |	longestAtrialTachycardiaDuration |	最长室上性心动过速持续时间 |	int |
+| |	longestAtrialTachycardiaOccurTime |	最长室上性心动过速发生时间 |	string |
+| |	longestAtrialTachycardiaCount |	最长室上速心博数 |	int |	签字报告|
+| |	maxAtrialPermatureHeartRate |	室上速最高心率 |	int |	签字报告|
+| diagnose  |  |  |	| 诊断结果|
+| 结论 |	description |	描述结论 |	string |
+| |	diagnoseInfo |	诊断性结论 |	string |
+| ecgHourEventList  |  |  |	| （签字报告）小时统计列表，单个对象属性如下：|
+| 小时事件更表 |	hourName |	时间 |	string |
+| |	beatCount |	心博数 |	int |
+| |	minHeartRate |	最小 |	int |
+| |	averageHeartRate |	平均 |	int |
+| |	maxHeartRate |	最大 |	int |
+| |	asystoleCount |	停博 |	int |
+| |	ventricularBeatCount |	室性室早 |	int |
+| |	coupleVentricularPermatureCount |	室性成对 |	int |
+| |	ventricularTachycardiaCount |	室性室速 |	int |
+| |	atrialBeatCount |	室上早 |	int |
+| |	coupleAtrialPermatureCount |	室上性成对 |	int |
+| |	atrialTachycardiaCount |	室上速 |	int |
+| eventList  |  |  |	| 事件片段列表，单个对象属性如下：|
+| 事件列表 |	eventCode |	事件编码 |	string |
+| |	eventName |	事件描述 |	string |
+| |	startPos |	开始位置 |	long |
+| |	endPos |	结束位置 |	long |
+| |	eventTime |	事件时间 |	string |
+| |	hr |	心率  |	int |
+| |	leadNameList |	要打印展示的导联列表 |	List\<String\> |	空的话是打印所有导联|
+| hrvList  |	  |	（签字报告）心率变异小时统计列表，单个对象属性如下：|
+| 心率变异列表 |	tBeat |	T.Beat |	int |
+| |	qBeat |	Q.Beat |	int |
+| |	hr |	HR |	int |
+| |	rr |	RR |	int |
+| |	sdnn |	SDNN |	int |
+| |	sdann |	SDANN |	int |
+| |	sdnnIndex |	SDNN* |	int |
+| |	rmssd |	rMSSD |	int |
+| |	pnn50 |	PNN50 |	int |
+| |	ulf |	ULF |	int |
+| |	vlf |	VLF |	int |
+| |	lf |	LF |	int |
+| |	hf |	HF |	int |
+| imgList |  | | | （签字报告）直方图、散点图数据列表|
+| 直方图 |	imgCode |	图片编码 |	string | "1-NN间期直方图, 2-NN间期差值直方图, 3-NN间期散点图, 4-RR间期散点图" |
+| |	imgData |	图片base64编码值 |	sting |
+| imgSummary |  | | | （签字报告）直方图、散点图汇总数据|
+| 图片描述 |	maxRR |	Max RR |	double |
+| |	minRR |	Min RR |	double |
+| |	meanRR |	Mean RR |	double |
+| |	sdnn |	SDNN |	double |
+| |	triangularIndex |	Triangular Index |	double |
+| |	nn50 |	NN50 |	double |
+| |	pnn50 |	PNN50 |	double |
+| |	sdann |	SDANN |	double |
+| |	sdnnIndex |	SDNN Index |	double |
+| |	time |	Time |	string |
+| |	totalNumber |	Total Number |	int |
+| |	qualifiedNumber |	Qualified Number |	double |
+| |	qualified |	Qualified |	double |
+| stList |  | | | ST(mv)数据列表，单个对象的属性如下：|
+| |	leadName |	导联名称 |	string |
+| |	leadData |	st数据 |	List\<Float\> |
+| diagnoseList |  | | list\<Object\> | ai诊断内容列表（人工诊断内容可能与上述diagnose诊断结果不同）|
+| |	code |	诊断code |	string |
+| |	diagnoseInfo |	诊断信息 |	string |
