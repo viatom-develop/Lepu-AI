@@ -7,11 +7,13 @@
 | -------------- | ---- | ------ | -------- |
 | 2021年12月15日 | V0.1 | 王江   | 初次发布 |
 | 2022年04月26日 | v0.2 | 王江   | 更新AI分析与签字报告返回JSON结构体 |
+| 2022年04月27日 | v0.3 | 王登普   | 更新部分字段 |
 
 
 ## 1. 请求信息
 1. 接口地址
-   测试Host: https://open.viatomtech.com.cn
+
+   测试Host: `https://open.viatomtech.com.cn`
 
 2. 接口基本定义
    本文档中的业务接口的入（出）参均是指业务参数，调用接口时Headers必须添加上公共请求头，解析响应时，必须按照公共出参解析
@@ -55,7 +57,8 @@
  **响应参数**
 | 参数名     | 是否必须 | 类型（长度） | 说明                     |
 | ---------- | -------- | ------------ | ------------------------ |
-| analysisId | 是       | string       | 分析ID，用于请求分析结果 |
+| analysis_id | 是       | string       | 分析ID，用于请求分析结果 |
+
 例：
 ```json
 {
@@ -82,14 +85,15 @@
  **请求体**
  | 参数名     | 是否必须 | 类型（长度） | 说明                     |
  | ---------- | -------- | ------------ | ------------------------ |
- | analysisId | 是       | string       | 分析ID，JSON编码字符串。 |
+ | analysis_id | 是       | string       | 分析ID，JSON编码字符串。 |
 
  **响应参数**
  | 参数名          | 是否必须 | 类型（长度） | 说明                         |
  | --------------- | -------- | ------------ | ---------------------------- |
- | analysisId      | 是       | string       | 分析ID，用于请求分析结果     |
- | analysis_result | 是       | string       | AI分析结果，具体字段见附录   |
- | report_url      | 是       | string       | 分析报告，比AI分析结果有延迟 |
+ | analysis_id     | 是       | string       | 分析ID，用于请求分析结果      |
+ | analysis_status | 是       | string       | 分析状态                   |
+ | analysis_result | 是       | string       | AI分析结果，具体字段见附录    |
+ | report_url      | 是       | string       | 分析报告，比AI分析结果有延迟  |
 
 - AI 分析结果
 ```json
@@ -277,12 +281,22 @@
  **请求体**
  | 参数名     | 是否必须 | 类型（长度） | 说明                   |
  | ---------- | -------- | ------------ | ---------------------- |
- | analysisId | 是       | string       | 分析ID，JSON编码字符串 |
+ | analysis_ids | 是       | array       | 分析ID数组 |
 
+例：
+```json
+{
+	"analysis_ids": [
+		"OA==|MTU3",
+		"Ng==|OTk5"
+	]
+}
+```
  **响应参数**
  | 参数名 | 是否必须 | 类型（长度） | 说明         |
  | ------ | -------- | ------------ | ------------ |
- |        | 是       | list         | 分析状态列表 |
+ |        | 是       | array         | 分析状态列表 |
+
 例：
 ```json
 {
@@ -310,27 +324,27 @@
 1. ecginfo
    ```jsonc
    {
-    "user": { // 用户信息，目前全部为可选
-        "name": "Xiao Ming", 
-        "gender": "0", // 性别（0：默认；1：男；2：女）
-        "birthday": "1991-08-13", // 生日（yyyy-MM-dd）
-        "id_number": "44301xxx", // 身份证号码,非必填。对于签字报告必填
-        "phone": "18888555000" // 非必填
+        "user": {
+            "name": "Xiao Ming", // 必填
+            "gender": "0", // 性别（0：默认；1：男；2：女），对于签字报告必填
+            "birthday": "1991-08-13", // 生日（yyyy-MM-dd），对于签字报告必填
+            "id_number": "44301xxx", // 身份证号码，对于签字报告必填
+            "phone": "18888555000" // 必填
         },
-    "analysis_type": "1", // 1短程，2长程
-    "service_ability": "1", // 1 AI分析， 2 医生签字报告
-    "access_token": "shaxxxx", // 对应服务能力的AccessToken
-    "application_id": "com.lepu.lepucare", // 应用id
-    "device": {
-        "model": "er1",
-        "band": "Lepu",
-        "sn": "20001001200"
+        "analysis_type": "1", // 1短程，2长程
+        "service_ability": "1", // 1 AI分析， 2 医生签字报告
+        "access_token": "shaxxxx", // 对应服务能力的AccessToken
+        "application_id": "com.lepu.lepucare", // 应用id
+        "device": {
+            "model": "er1",
+            "band": "Lepu",
+            "sn": "20001001200"
         },
-    "ecg": {
-        "measure_time": "2021-09-07T10:25:41Z",
-        "duration": "30", //单位s
-        "sample_rate": "500",
-        "lead": "II" // I导联/II导联
+        "ecg": {
+            "measure_time": "2021-09-07T10:25:41Z",
+            "duration": "30", //单位s
+            "sample_rate": "500",
+            "lead": "II" // I导联/II导联
         }
     }
 
