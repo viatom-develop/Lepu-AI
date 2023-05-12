@@ -179,6 +179,7 @@
 ```
 
 ### 2.4 获取分析结果
+>请求该接口前，请先获取分析状态，分析完成后再请求
 
 &emsp;&emsp;接口地址：POST&emsp;`${host}/api/v1/ecg/analysis/result/query` \
 &emsp;&emsp;Content-Type：`application/json`
@@ -965,7 +966,7 @@
         "analysis_type": "1", // 1短程，2长程
         "service_ability": "1", // 1 AI分析， 2 医生签字报告
         "access_token": "", // 对应服务能力的AccessToken
-        "application_id": "com.lepu.lepucare", // 应用id(应用包名)
+        "application_id": "xxx.xxx.xx", //应用id(应用包名,注意格式)
         "device": {
             "model": "ER1", //型号，从下列设备列表中查找对应正确的model
             "band": "Lepu", //品牌
