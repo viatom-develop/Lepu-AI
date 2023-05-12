@@ -30,6 +30,7 @@
 | 2022年04月27日 | v0.3 | kevin   | 更新部分字段 |
 | 2022年05月18日 | v0.4 | kevin   | 更新部分字段描述 |
 | 2022年09月23日 | v0.5 | kevin   | 新增静息心电分析接口，完善部分文档内容 |
+| 2023年05月12日 | v0.5 | kevin   | 完善文档描述 |
 
 
 ## 1. 请求信息
@@ -221,8 +222,8 @@
                     "sex": "00160002",
                     "age": "{\"d\": 0, \"m\": 0, \"w\": 0, \"y\": 26}",
                     "createTime": "2022-04-22 11:09:37",
-                    "startTime": "2022-04-20 15:20:27",
-                    "endTime": "2022-04-20 15:21:06"
+                    "startTime": "2022-04-20 15:20:27", //会受measure_time格式影响
+                    "endTime": "2022-04-20 15:21:06" //会受measure_time格式影响
                 },
                 "hrInfo": {
                     "beatCount": 56,
@@ -279,30 +280,35 @@
                     "diagnoseInfo": "窦性心律"
                 },
                 "ecgHourEventList": null,
-                "eventList": [{
-                    "eventCode": "13000",
-                    "eventName": "最大心率",
-                    "startPos": "5805",
-                    "endPos": "7805",
-                    "eventTime": "2022-04-20 15:20:50",
-                    "hr": 87,
-                    "leadNameList": [
-                        "II"
-                    ]
-                }, {
-                    "eventCode": "13001",
-                    "eventName": "最小心率",
-                    "startPos": "0",
-                    "endPos": "2000",
-                    "eventTime": "2022-04-20 15:20:27",
-                    "hr": 82,
-                    "leadNameList": [
-                        "II"
-                    ]
-                }],
+                "eventList": [
+                     {
+                        "eventCode": "13000",
+                        "eventName": "最大心率",
+                        "startPos": "5805",
+                        "endPos": "7805",
+                        "eventTime": "2022-04-20 15:20:50", //会受measure_time格式影响
+                        "hr": 87,
+                        "leadNameList": ["II"]
+                    }
+                ],
                 "hrvList": null,
                 "imgList": null,
                 "imgSummary": null,
+                "allEventList": [
+                    {
+                        "endPos": "15410",
+                        "startPos": "13410",
+                        "eventCode": "13000",
+                        "eventName": "最大心率",
+                        "eventTime": "2023-05-12 15:00:53" //会受measure_time格式影响
+                    }       
+                ],
+                "diagnoseList": [
+                    {
+                        "code": "101",
+                        "diagnoseInfo": "窦性心律"
+                    }
+                ],
                 "stList": null,
                 "diagnoseList": [{
                     "code": "101",
@@ -330,9 +336,9 @@
             "analysis_id": "Mg==|ODU=",
             "analysis_status": "10010391",
             "analysis_result": {
-                "dataStartTime": "2022-04-20 15:22:07",
-                "dataEndTime": "2022-04-20 15:22:44",
-                "reportTime": "",
+                "dataStartTime": "2022-04-20 15:22:07", //会受measure_time格式影响
+                "dataEndTime": "2022-04-20 15:22:44", //会受measure_time格式影响
+                "reportTime": "", 
                 "totalDuration": 0,
                 "validDuration": 0,
                 "beatCount": "50",
@@ -401,7 +407,7 @@
                 "pid": "26",
                 "gender": "00160002",
                 "checkNo": "220708000006",
-                "testTime": "2022-07-08T02:10:19.000Z",
+                "testTime": "2022-07-08T02:10:19.000Z", //utc时间，需要加本地时区得到本地时间
                 "warnList": [],
                 "itemCount": null,
                 "patientId": "VN6Mr7ch--0Emwe56F7sNoLS",
@@ -500,36 +506,11 @@
                         "code": "821",
                         "content": "窦性心律不齐",
                         "leadInvolved": ""
-                    },
-                    {
-                        "code": "847",
-                        "content": "室上性期前收缩二联律",
-                        "leadInvolved": ""
-                    },
-                    {
-                        "code": "841",
-                        "content": "室上性期前收缩",
-                        "leadInvolved": ""
-                    },
-                    {
-                        "code": "307",
-                        "content": "左心房扩大",
-                        "leadInvolved": ""
-                    },
-                    {
-                        "code": "621",
-                        "content": "T波倒置",
-                        "leadInvolved": "I,V2,V3,V4,V5,V6"
-                    },
-                    {
-                        "code": "133",
-                        "content": "低电压",
-                        "leadInvolved": ""
-                    }
+                    }                
                 ],
                 "testOfficeName": "",
                 "diagnoseContent": "",
-                "diagnoseEndTime": "2022-07-08T02:36:27.000Z",
+                "diagnoseEndTime": "2022-07-08T02:36:27.000Z",//utc时间，需要加本地时区得到本地时间
                 "diagnosedByName": "resting_pd",
                 "leadMeasurements": [
                     {
@@ -953,7 +934,7 @@
                         "leadType": "V6"
                     }
                 ],
-                "diagnoseBeginTime": null,
+                "diagnoseBeginTime": "2022-07-08T02:30:27.000Z", //utc时间，需要加本地时区得到本地时间
                 "diagnosedSignature": "",
                 "diagnoseFeatureDesc": ""
             },
@@ -975,25 +956,26 @@
 ```jsonc
    {
         "user": {
-            "name": "Xiao Ming",    // 必填
-            "phone": "18888555000", // 必填
-            "gender": "0",          // 性别（1：男；2：女），对于签字报告必填
+            "name": "",    // 姓名，必填
+            "phone": "", // 手机号，必填
+            "gender": "1",          // 性别（1：男；2：女），对于签字报告必填
             "birthday": "1991-08-13", // 生日（yyyy-MM-dd），对于签字报告必填
-            "id_number": "44301xxx",  // 身份证号码，对于签字报告必填
+            "id_number": "",  // 身份证号码，对于签字报告必填
         },
         "analysis_type": "1", // 1短程，2长程
         "service_ability": "1", // 1 AI分析， 2 医生签字报告
-        "access_token": "shaxxxx", // 对应服务能力的AccessToken
-        "application_id": "com.lepu.lepucare", // 应用id
+        "access_token": "", // 对应服务能力的AccessToken
+        "application_id": "com.lepu.lepucare", // 应用id(应用包名)
         "device": {
-            "model": "ER1", 
-            "band": "Lepu",
-            "sn": "20001001200"
+            "model": "ER1", //型号，从下列设备列表中查找对应正确的model
+            "band": "Lepu", //品牌
+            "sn": "" //设备sn
         },
         "ecg": {
-            "measure_time": "2021-09-07T10:25:41Z",
+            "measure_time": "", //支持UTC格式(即0时区时间,如2022-10-01T10:30:00Z,注意与本地当前时间的正确换算)和本地当前时间格式(如2022-08-01 10:25:00),
+            //注意事项：当使用到分析结果里的部分时间时(分析结果中有注明)，如使用UTC格式，则需要加上本地对应的时区得到本地时间，使用后者格式则不需要。
             "duration": "30", //分析数据时长，单位s, 不少于30，>=900为长程，否则为短程，要与analysis_type字段的值匹配
-            "sample_rate": "500",
+            "sample_rate": "", //设备采样率，如500
             "lead": "II" // I导联/II导联
         }
     }
@@ -1146,24 +1128,24 @@
    {
     "ecg": {
         "duration": 370, //分析时长，单位s
-        "sample_rate": "1000", //采样率
-        "measure_time": "2022-02-04 13:29:55" //测量时间
+        "sample_rate": "", //采样率，如125
+        "measure_time": "" //测量时间(YYYY-MM-DD HH:mm:ss格式，如2022-02-04 13:29:55),
     },
     "user": {
-        "name": "test1", //必填
-        "phone": "15010628029", //必填
+        "name": "test1", //姓名，必填
+        "phone": "", //手机号，必填
         "gender": "1", //性别（1：男，2：女）,对于签字报告必填
         "birthday": "1991-08-13",//出生日期（yyyy-mm-dd）,对于签字报告必填
-        "id_number": "511621199606215126" //身份证号，对于签字报告必填
+        "id_number": "" //身份证号，对于签字报告必填
     },
     "device": {
-        "sn": "1234567899", //设备sn
+        "sn": "", //设备sn
         "band": "Lepu", //品牌
-        "model": "PC-700" //型号
+        "model": "" //型号，从下列设备列表中查找对应正确的model
     },
-    "access_token": "7740e25c6b54d75e6c14cd2a474196fe", //对应服务能力的AccessToken
+    "access_token": "", //对应服务能力的AccessToken
     "analysis_type": "1-12", //分析类型，“-”前表示1-短程，“-”后表示导联类型,12-十二导
-    "application_id": "com.viatom.ai", //应用id
+    "application_id": "xxx.xxx.xx", //应用id(应用包名,注意格式)
     "service_ability": 1 // 1 AI分析， 2 医生签字报告
    }
 ```
