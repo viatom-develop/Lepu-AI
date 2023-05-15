@@ -1012,8 +1012,8 @@
     | | sex | 性别 | string ||
     | | age | 年龄 | int    ||
     | | createTime | 记录日期 | string ||
-    | | startTime | 数据开始时间（会受measure_time格式影响） | string ||
-    | | endTime | 数据结束时间（会受measure_time格式影响） | string ||
+    | | startTime | 数据开始时间| string |会受measure_time格式影响|
+    | | endTime | 数据结束时间| string |会受measure_time格式影响|
     | hrInfo  |   | 心率统计|||
     | | beatCount | 心博总数 | int ||
     | | averageHeartRate | 平均心率 | int ||
@@ -1080,7 +1080,7 @@
     | | eventName | 事件描述 | string ||
     | | startPos | 开始位置 | long ||
     | | endPos | 结束位置 | long ||
-    | | eventTime | 事件时间（会受measure_time格式影响） | string ||
+    | | eventTime | 事件时间| string |会受measure_time格式影响|
     | | hr | 心率  | int ||
     | | leadNameList | 要打印展示的导联列表 | List\<String\> | 空的话是打印所有导联|
     | hrvList  |   | （签字报告）心率变异小时统计列表，单个对象属性如下：|||
@@ -1167,7 +1167,7 @@
    | gender              | |性别编码        |string||
    | genderText          | | 性别名称 |string ||
    | checkNo             | | 检查号        |string||
-   | testTime            | | 检查时间（utc时间，需要加本地时区得到本地时间） |string||
+   | testTime            | | 检查时间|string|utc时间，需要加本地时区得到本地时间|
    | warnList            | | 危急值列表 |object []||
    | itemCount           | |  |int||
    | patientId           | | 病人id |string||
@@ -1186,8 +1186,8 @@
    | diagnosticList      | |诊断列表 |object [] ||
    | testOfficeName      | |检查科室 |string||
    | diagnoseContent     | |诊断结果 |string||
-   | diagnoseBeginTime   | | 诊断开始时间（utc时间，需要加本地时区得到本地时间） |string||
-   | diagnoseEndTime     | | 诊断结束时间（utc时间，需要加本地时区得到本地时间） |string||
+   | diagnoseBeginTime   | | 诊断开始时间|string|utc时间，需要加本地时区得到本地时间|
+   | diagnoseEndTime     | | 诊断结束时间|string|utc时间，需要加本地时区得到本地时间|
    | diagnosedByName     | | 诊断人名称 |string||
    | leadMeasurements    | | 各个导联的测量值 |object []||
    | diagnosedSignature  | |诊断签名 |string||
