@@ -962,6 +962,9 @@
             "gender": "1",          // 性别（1：男；2：女），对于签字报告必填
             "birthday": "1991-08-13", // 生日（yyyy-MM-dd），对于签字报告必填
             "id_number": "",  // 身份证号码，对于签字报告必填
+            "height":170, // 身高cm，非必填
+            "weight":80 // 体重kg，非必填
+            //为了使分析结果更加准确，请尽量将gender、birthday、height、weight等字段信息填写完整
         },
         "analysis_type": "1", // 1短程，2长程
         "service_ability": "1", // 1 AI分析， 2 医生签字报告
