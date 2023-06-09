@@ -971,7 +971,7 @@
         "access_token": "", // 对应服务能力的AccessToken
         "application_id": "xxx.xxx.xx", //应用id(应用包名,注意格式)
         "device": {
-            "model": "ER1", //型号，从下列设备列表中查找对应正确的model
+            "model": "ER1", //型号，从下列设备列表中查找对应的model(区分大小写)
             "band": "Lepu", //品牌
             "sn": "" //设备sn
         },
@@ -1146,7 +1146,7 @@
     "device": {
         "sn": "", //设备sn
         "band": "Lepu", //品牌
-        "model": "" //型号，从下列设备列表中查找对应正确的model
+        "model": "" //型号，从下列设备列表中查找对应正确的model(区分大小写)
     },
     "access_token": "", //对应服务能力的AccessToken
     "analysis_type": "1-12", //分析类型，“-”前表示1-短程，“-”后表示导联类型,12-十二导
