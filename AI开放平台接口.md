@@ -964,7 +964,7 @@
             "id_number": "",  // 身份证号码，对于签字报告必填
             "height":170, // 身高cm，非必填
             "weight":80 // 体重kg，非必填
-            //gender、birthday影响分析结果，请填写真实数据
+            //gender、birthday会影响分析结果，请填写真实数据
         },
         "analysis_type": "1", // 1短程，2长程
         "service_ability": "1", // 1 AI分析， 2 医生签字报告
