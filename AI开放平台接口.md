@@ -60,7 +60,7 @@
    | code    | 是       | int          | 响应码。0：成功，其他：异常          |
    | message | 是       | string       | 响应描述（常用于出错后的提示）       |
    | reason  | 是       | string       | 错误详情（主要为出错后的堆栈信息）   |
-   | data    | 是       | object|array | 响应内容（请参考具体业务接口的出参）, 默认为object,请求列表数据时为array |
+   | data    | 是       | object|array | 响应内容（请参考具体业务接口的出参）, 默认为object,请求列表数据时为array  |
 
 ## 2. 接口信息
 
