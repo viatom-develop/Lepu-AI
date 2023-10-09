@@ -60,7 +60,7 @@
    | code    | 是       | int          | 响应码。0：成功，其他：异常          |
    | message | 是       | string       | 响应描述（常用于出错后的提示）       |
    | reason  | 是       | string       | 错误详情（主要为出错后的堆栈信息）   |
-   | data    | 是       | 无限制       | 响应内容（请参考具体业务接口的出参） |
+   | data    | 是       | object|array | 响应内容（请参考具体业务接口的出参）, 默认为object,请求列表数据时为array |
 
 ## 2. 接口信息
 
@@ -967,7 +967,7 @@
             //gender、birthday会影响分析结果，请填写真实数据
         },
         "analysis_type": "1", // 1短程，2长程
-        "service_ability": "1", // 1 AI分析， 2 医生签字报告
+        "service_ability": 1, // 1 AI分析， 2 医生签字报告
         "access_token": "", // 对应服务能力的AccessToken
         "application_id": "xxx.xxx.xx", //应用id(应用包名,注意格式)
         "device": {
