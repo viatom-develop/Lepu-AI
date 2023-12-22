@@ -586,6 +586,256 @@
 
 ```
 
+### Dynamic ECG analysis
+
+> BASIC
+
+**Path:** /third/dynamicEcgAnalysis
+
+**Method:** POST
+
+> REQUEST
+
+**Headers:**
+
+| name | value | required | desc |
+| ------------ | ------------ | ------------ | ------------ |
+| Content-Type | multipart/form-data | YES |  |
+| secret-key | **Secret** | YES | Secret |
+| Access-token | **Access-Token** | YES | Access-Token |
+
+**Query:**
+
+| name | value | required | desc |
+| ------------ | ------------ | ------------ | ------------ |
+| patientId | 0001 | YES | Patient's unique identification number |
+| patientName | your name | YES | Name of the current patient |
+| gender | 1 | YES | Gender of the current patient: 1-Male, 2-Female, 0-Unknown |
+| birth | 775324800000 | YES | Timestamp (in milliseconds) of the current patient's date of birth, accurate to the year, month, and day |
+| measureTime | 1703112038000 | YES | The start timestamp of this measurement |
+| duration | 70 | YES | The duration of this measurement session, in seconds |
+| lead | 1 | YES | The number of leads |
+| deviceType | 33 | NO | [Device type](#DeviceType) |
+| deviceSn | 23034F0241 | NO | Device serial number |
+| timeZone | 28800 | NO | Timezone offset in seconds. Default is UTC. For example: UTC=0, GMT+8=28800 |
+| language | zh-CN | NO | [Language](#Language) |
+
+**Form:**
+
+| name | value | required | type | desc |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| file | [Sample file](https://github.com/viatom-develop/Lepu-AI/blob/main/ViatomOpenAPI/ecg-analysis.dat) | YES | file | The ECG file in dat, xml or txt format. |
+
+> RESPONSE
+
+**Headers:**
+
+| name | value | required | desc |
+| ------------ | ------------ | ------------ | ------------ |
+| content-type | multipart/form-data | NO |  |
+
+**Body:**
+
+| name | type | desc |
+| ------------ | ------------ | ------------ |
+| code | integer | code |
+| msg | string | message |
+| data | object | data |
+
+**Response Demo:**
+
+```json
+{
+    "code": 200,
+    "msg": "success",
+    "data": "1737750783631364098" // The ECG ID.
+}
+```
+
+### Query ECG result
+
+> BASIC
+
+**Path:** /third/queryEcgResult
+
+**Method:** POST
+
+> REQUEST
+
+**Headers:**
+
+| name | value | required | desc |
+| ------------ | ------------ | ------------ | ------------ |
+| Content-Type | application/json | YES |  |
+
+**Request Body:**
+
+| name | type | desc |
+| ------------ | ------------ | ------------ |
+|  | array | Collection of ECG IDs. |
+|  | integer |  |
+
+**Request Demo:**
+
+```json
+[
+  1737737228878090241,
+  1737738147003883522
+]
+```
+
+> RESPONSE
+
+**Headers:**
+
+| name | value | required | desc |
+| ------------ | ------------ | ------------ | ------------ |
+| content-type | application/json;charset=UTF-8 | NO |  |
+
+**Body:**
+
+| name | type | desc |
+| ------------ | ------------ | ------------ |
+| code | integer | code |
+| msg | string | message |
+| data | object | data |
+| &ensp;&ensp;&#124;─ | object |  |
+| &ensp;&ensp;&ensp;&ensp;&#124;─id | integer | The ECG ID |
+| &ensp;&ensp;&ensp;&ensp;&#124;─filePath | string | Cloud path of the original ECG file. |
+| &ensp;&ensp;&ensp;&ensp;&#124;─resultPath | string | Text path of the ECG analysis result. |
+| &ensp;&ensp;&ensp;&ensp;&#124;─reportPath | string | Path to the PDF report of the ECG analysis result. |
+| &ensp;&ensp;&ensp;&ensp;&#124;─completeTime | string | Time of completion for the ECG analysis. |
+
+**Response Demo:**
+
+```json
+// ps: Only return the analyzed ECG data.
+{
+  "code": 0,
+  "msg": "",
+  "data": [
+    {
+      "id": "1737737228878090241", // The ECG ID
+      "filePath": "http://", // File path of the original ECG file
+      "resultPath": "http://", // File path of the text result
+      "reportPath": "http://", // File path of the PDF report of the ECG analysis result
+      "completeTime": 1703210815000 // Time of completion for the ECG analysis
+    },
+    {
+      "id": "1737738147003883522",
+      "filePath": "http://",
+      "resultPath": "http://",
+      "reportPath": "http://",
+      "completeTime": 1703210815000
+    }
+  ]
+}
+```
+
+### Language
+| language | descrpition |
+| ------------ | ------------ |
+|en-US |English|
+|zh-CN |Simplified Chinese|
+|de-DE |German|
+|it-IT |Italian|
+|es-ES |Spanish|
+|fr-FR |French|
+
+### DeviceType
+
+| device type | device name |
+| ------------ | ------------ |
+|1|BP2_WIFI    |
+|2|BP2 |
+|3|BP2A    |
+|4|BP2T    |
+|5|SPOT_CHECK_MONITOR  |
+|6|B02T    |
+|7|B02 |
+|8|TH3 |
+|9|TH12    |
+|10|CHECKME_O2 |
+|11|CHECKME_O2_MAX |
+|12|CHECKME_O2_LITE    |
+|13|SLEEPO2    |
+|14|SLEEPO2_LITE   |
+|15|SNOREO2    |
+|16|WEARO2 |
+|17|SLEEPU |
+|18|OXYLINK    |
+|19|BABYO2_S2  |
+|20|O2RING |
+|21|BabyO2 |
+|22|KIDSO2 |
+|23|CHECKME_POD    |
+|24|OXYFIT |
+|25|PC60FW |
+|26|FS20F  |
+|27|OXYSMART   |
+|28|POD_2W |
+|29|OXYLINK_REMOTE |
+|30|O2RING_REMOTE  |
+|31|ER1    |
+|32|ER2    |
+|33|DOUEK  |
+|34|VISUALBEAT |
+|35|PULSEBIT_EX    |
+|36|PULSEBIT   |
+|37|AD51   |
+|38|FD_510G    |
+|39|P600L  |
+|40|AOJ_20A    |
+|41|F1 |
+|42|LEM1   |
+|43|AIR_FORCE  |
+|44|F4 |
+|45|F5 |
+|46|F6 |
+|47|PC_60NW_1  |
+|48|POD_1W |
+|49|AP_20  |
+|50|PC_66B |
+|51|P1 |
+|52|SP_20  |
+|53|PC_80B |
+|54|PF_10  |
+|55|PF_20  |
+|56|PC_60NW    |
+|57|BBSM_S1    |
+|58|BBSM_S2    |
+|59|OxyRing    |
+|60|OxyU   |
+|61|S5W    |
+|62|HHM1   |
+|63|HHM2   |
+|64|HHM3   |
+|65|HHM4   |
+|66|S6W    |
+|67|S7W    |
+|68|PC_300SNT  |
+|69|LPM311 |
+|70|POCTORM3102    |
+|71|PC_68B |
+|72|S6W1   |
+|73|S7BW   |
+|74|S5 |
+|75|PC200  |
+|76|ER3    |
+|77|CHECKME_PRO    |
+|78|CHECKME_LITE   |
+|79|P3 |
+|80|F4_Pro |
+|81|O2RING_S   |
+|82|PF_10BW    |
+|83|SA_10AW    |
+|84|PO6B   |
+|85|ER1_LW |
+|86|ER1_LB |
+|87|ER2_S  |
+|88|LEPOD_PRO  |
+|89|M12    |
+
 ### Error code
 
 | code | message | desc |
