@@ -518,11 +518,11 @@
 | 100005 | Application service disabled. | service is forbiden           |
 | 100006 | Invalid application service.  | invalid service               |
 | 101009 | No authorized user exists.    | unauthorized user found       |
+| 101017 | ECG analysis failed.          | ECG file upload failed.       |
+| 101018 | Your balance is insufficient. | Your balance is insufficient. |
 | 109993 | Access token is invalid.      | API invalid Access-token      |
 | 109994 | The request was not granted.  | API unauthorized Access-token |
 | 109996 | Access token error.           | API Access-token not matched  |
 | 109997 | Secret key error.             | API secret error              |
 | 109997 | Authentication failure.       | invalid auth                  |
 | 109999 | System busy, try again later! | too much requests             |
-| 101017 | ECG analysis failed.          | ECG file upload failed.       |
-| 101018 | Your balance is insufficient. | Your balance is insufficient. |
