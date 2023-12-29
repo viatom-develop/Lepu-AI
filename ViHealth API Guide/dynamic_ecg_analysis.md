@@ -274,73 +274,73 @@
       "ecg_id": "MTc0MDU3NDUyMzIzNTcyNTMxMw==", // The ECG ID
        "diagnosis_result": {
           "version": 2,
-          "base_info": { // Basic Information
-             "test_id": "VNmnaZGY---pNaFOXSPReHnS", // Check ID
-             "sample": "250", // Sampling Rate
-             "analysis_time": "2023-12-29 11:24:56", // Analyze Time 
-             "analysis_duration": 2860, // Analysis Duration
-             "name": "your name", // Name
-             "sex": "00160001", // Gender
-             "age": "{\"d\": 2, \"m\": 5, \"w\": 0, \"y\": 29}", // Age
-             "create_time": "2023-12-29 11:24:55", // Record Date   
-             "start_time": "2023-12-06 09:35:14", // Start Time of Data   
-             "end_time": "2023-12-06 10:22:54" // End Time of Data  
+          "baseInfo": { // Basic Information
+              "testId": "VNmnaZGY---pNaFOXSPReHnS", // Check ID
+              "sample": "250", // Sampling Rate
+              "analysisTime": "2023-12-29 11:24:56", // Analyze Time 
+              "analysisDuration": 2860, // Analysis Duration
+              "name": "周小昊", // Name
+              "sex": "00160001", // Gender
+              "age": "{\"d\": 2, \"m\": 5, \"w\": 0, \"y\": 29}", // Age
+              "createTime": "2023-12-29 11:24:55", // Record Date   
+              "startTime": "2023-12-06 09:35:14", // Start Time of Data   
+              "endTime": "2023-12-06 10:22:54" // End Time of Data  
           },
-          "af_info": {
-             "af_beat_percent": 0
+          "afInfo": {
+              "afBeatPercent": 0
           },
-          "hr_info": {
-             "beat_count": 4290, // Total Heartbeats 
-             "max_heart_rate": 91, // Average Heart Rate
-             "min_heart_rate": 89, // Maximum Heart Rate  
-             "long_rr_period_at": "", // Minimum Heart Rate  
-             "atrial_beat_count": 0, // Time of Longest RR Interval   
-             "max_long_rr_period": 0, // Number of long RR
-             "average_heart_rate": 89, // Maximum RR interval duration
-             "abnormal_beat_count": 0, // Number of arrests  
-             "long_rr_period_count": 0, // Abnormal heart count 
-             "ventricular_beat_count": 0, // Ventricular beat  
-             "asystole_r_r_period_count": 0 // Supraventricular beats 
+          "hrInfo": {
+              "beatCount": 4290, // Total Heartbeats 
+              "maxHeartRate": 91, // Average Heart Rate
+              "minHeartRate": 89, // Maximum Heart Rate  
+              "longRRPeriodAt": "", // Minimum Heart Rate  
+              "atrialBeatCount": 0, // Time of Longest RR Interval   
+              "maxLongRRPeriod": 0, // Number of long RR
+              "averageHeartRate": 89, // Maximum RR interval duration
+              "abnormalBeatCount": 0, // Number of arrests  
+              "longRRPeriodCount": 0, // Abnormal heart count 
+              "ventricularBeatCount": 0, // Ventricular beat  
+              "asystoleRRPeriodCount": 0 // Supraventricular beats 
           },
-          "hrv_info": {
-             "sdnn": 6.29, // SDNN
-             "sdnn_index": null, // SDNN Index  
-             "rmssd": 9.05, // RMSSD
-             "pnn50": 0.28, // PNN50
-             "triangular_index": 3.39, // Triangular index   
-             "hf": 22.84, // HF
-             "lf": 1.5, // LF
-             "vlf": 0.5 // VLF
+          "hrvInfo": {
+              "sdnn": 6.29, // SDNN
+              "sdnnIndex": null, // SDNN Index  
+              "rmssd": 9.05, // RMSSD
+              "pnn50": 0.28, // PNN50
+              "triangularIndex": 3.39, // Triangular index   
+              "hf": 22.84, // HF
+              "lf": 1.5, // LF
+              "vlf": 0.5 // VLF
           },
-          "ventricular_info": {
-             "ventricular_beat_count": 0, // Total number of ventricular cardiac beats
-             "ventricular_permature_beat_count": 0, // Number of premature ventricular contractions  
-             "couple_ventricular_permature_count": 0, // Premature ventricular contractions are paired
-             "ventricular_bigeminy_count": 0, // Number of ventricular dyads
-             "ventricular_trigeminy_count": 0, // Number of ventricular triads
-             "ventricular_tachycardia_count": 0, // Number of ventricular tachycardias
-             "longest_ventricular_tachycardia_duration": 0, // Longest duration of ventricular tachycardia
-             "longest_ventricular_tachycardia_occur_time": "", // Time to onset of longest ventricular tachycardia 
-             "longest_ventricular_tachycardia_count": null, // Longest ventricular tachycardia count       
-             "max_ventricular_permature_heart_rate": null // Ventricular velocity, maximum heart rate 
+          "ventricularInfo": {
+              "ventricularBeatCount": 0, // Total number of ventricular cardiac beats
+              "ventricularPermatureBeatCount": 0, // Number of premature ventricular contractions  
+              "coupleVentricularPermatureCount": 0, // Premature ventricular contractions are paired
+              "ventricularBigeminyCount": 0, // Number of ventricular dyads
+              "ventricularTrigeminyCount": 0, // Number of ventricular triads
+              "ventricularTachycardiaCount": 0, // Number of ventricular tachycardias
+              "longestVentricularTachycardiaDuration": 0, // Longest duration of ventricular tachycardia
+              "longestVentricularTachycardiaOccurTime": "", // Time to onset of longest ventricular tachycardia 
+              "longestVentricularTachycardiaCount": null, // Longest ventricular tachycardia count
+              "maxVentricularPermatureHeartRate": null // Ventricular velocity, maximum heart rate 
           },
-          "supraventricular_info": {
-             "atrial_beat_count": 0, // Total supraventricular beats  
-             "atrial_permature_beat_count": 0, // Number of supraventricular premature contractions
-             "couple_atrial_permature_count": 0, // Supraventricular premature contractions are paired
-             "atrial_bigeminy_count": 0, // Number of supraventricular dyads
-             "atrial_trigeminy_count": 0, // Number of supraventricular triplets  
-             "atrial_tachycardia_count": 0, // Number of supraventricular tachycardias    
-             "longest_atrial_tachycardia_duration": 0, // Duration of longest supraventricular tachycardia
-             "longest_atrial_tachycardia_occur_time": "", // Time to onset of longest supraventricular tachycardia
-             "longest_atrial_tachycardia_count": null, // Longest supraventricular tachycardia count
-             "max_atrial_permature_heart_rate": null // Maximum heart rate at supraventricular velocity
+          "supraventricularInfo": {
+              "atrialBeatCount": 0, // Total supraventricular beats  
+              "atrialPermatureBeatCount": 0, // Number of supraventricular premature contractions
+              "coupleAtrialPermatureCount": 0, // Supraventricular premature contractions are paired
+              "atrialBigeminyCount": 0, // Number of supraventricular dyads
+              "atrialTrigeminyCount": 0, // Number of supraventricular triplets
+              "atrialTachycardiaCount": 0, // Number of supraventricular tachycardias
+              "longestAtrialTachycardiaDuration": 0, // Duration of longest supraventricular tachycardia
+              "longestAtrialTachycardiaOccurTime": "", // Time to onset of longest supraventricular tachycardia
+              "longestAtrialTachycardiaCount": null, // Longest supraventricular tachycardia count
+              "maxAtrialPermatureHeartRate": null // Maximum heart rate at supraventricular velocity
           },
-          "st_list": null,
-          "hrv_list": null,
-          "img_list": null,
-          "img_summary": null
-       },
+          "stList": null,
+          "hrvList": null,
+          "imgList": null,
+          "imgSummary": null
+      },
       "result_path": "https://elasticbeanstalk-us-west-2-697648770036.s3.us-west-2.amazonaws.com/platform-test/2023/12/29/txt/d915e7bd-2ad8-46db-909a-83a7bbb04ff6.txt", // File path of the text result
       "report_path": "https://elasticbeanstalk-us-west-2-697648770036.s3.us-west-2.amazonaws.com/platform-test/2023/12/29/pdf/13dc6858-5832-405a-b5eb-f31b9e3c4730.pdf", // File path of the PDF report of the ECG analysis result
       "complete_time": "1703820332000" // Time of completion for the ECG analysis
