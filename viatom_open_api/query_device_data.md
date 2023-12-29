@@ -67,6 +67,9 @@
 | msg  | string  | message |
 | data | object  | data    |
 
+**Example:**
+![image](./image/query_device_data.png)
+
 **Response Demo:**
 
 ```json
