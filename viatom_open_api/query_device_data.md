@@ -22,11 +22,12 @@
 
 **Headers:**
 
-| name         | value            | required | desc         |
-|--------------|------------------|----------|--------------|
-| Content-Type | application/json | YES      |              |
-| secret-key   | **Secret**       | YES      | Secret       |
-| Access-token | **Access-Token** | YES      | Access-Token |
+| name           | value              | required | desc           |
+|----------------|--------------------|----------|----------------|
+| Content-Type   | application/json   | YES      |                |
+| secret-key     | **Secret**         | YES      | Secret         |
+| Access-token   | **Access-Token**   | YES      | Access-Token   |
+| application-id | **Application-ID** | NO       | Application-ID |
 
 **Request Body:**
 
@@ -65,6 +66,9 @@
 | code | integer | code    |
 | msg  | string  | message |
 | data | object  | data    |
+
+**Example:**
+![image](./image/query_device_data.png)
 
 **Response Demo:**
 
