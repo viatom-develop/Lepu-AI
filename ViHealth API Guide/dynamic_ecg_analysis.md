@@ -1,84 +1,66 @@
-### Common API url
+## ViHealth AI-ECG API
 
-> COMMON
+### Host URL
+- **Development Environment:** `https://testai.viatomtech.com`
+- **Production Environment:**
+  - US Server: `https://ai.viatomtech.com`
+  - EU Server: `https://eu-cloud.viatomtech.com`
 
-**Host（Dev）:** https://testai.viatomtech.com
+### 1. Request ECG Analysis
 
-**Host（Online）:**
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/dynamicEcgAnalysis`
+- **Method:** POST
 
-(US server address): https://ai.viatomtech.com
+#### Request
 
-(EU server address): https://eu-cloud.viatomtech.com
+##### Headers
+| Name            | Value             | Required | Description  |
+|-----------------|-------------------|----------|--------------|
+| Content-Type    | multipart/form-data  | Yes      |              |
+| secret-key      | *Secret*          | Yes      | API secret   |
+| Access-token    | *Access-Token*    | Yes      | API token    |
+| application-id  | *Application-ID*  | No       | App ID       |
 
-### Dynamic ECG analysis
+##### Body: form-data
+| Name        | Type   | Required | Description                                      |
+|-------------|--------|----------|--------------------------------------------------|
+| file        | file   | Yes      | ECG file in .dat, .xml, or .txt format.          |
+| ecg_info    | string | Yes      | JSON string containing user and measurement info.|
 
-> BASIC
+###### file
+ECG file is required to request AI-ECG analysis. You can use the ECG file download form our device or use our standard 1-lead .txt ECG format(English doc TBD).
+[sample ECG files](https://github.com/viatom-develop/Lepu-AI/tree/main/ecg_demo_file)
 
-**Path:** /viatom-platform/v1/third/dynamicEcgAnalysis
-
-**Method:** POST
-
-> REQUEST
-
-**Headers:**
-
-| name           | value              | required | desc           |
-|----------------|--------------------|----------|----------------|
-| Content-Type   | application/json   | YES      |                |
-| secret-key     | **Secret**         | YES      | Secret         |
-| Access-token   | **Access-Token**   | YES      | Access-Token   |
-| application-id | **Application-ID** | NO       | Application-ID |
-
-**Form:**
-
-| name         | value                                                                                                      | required   | type   | desc                                     |
-|--------------|------------------------------------------------------------------------------------------------------------|------------|--------|------------------------------------------|
-| file         | [sample file](https://github.com/viatom-develop/Lepu-AI/blob/main/ecg_demo_file/R20210525181552.dat)       | YES        | file   | The ECG file in dat, xml or txt format.  |
-| ecg_info     | {"user_info":{"patient_name":"your name","gender":1,"birth":775238400000,"language":"zh-CN"},"measure_info":{"device_type":88,"device_sn":"2208820499","measure_time":1701826514000,"duration":2860,"time_zone":28800}}                   | YES        | string | JSON string of user's infomation         |
-
-**Request Demo:**
-
+###### ecg_info
 ```json
 {
-  "file": "The ECG file",
-  "ecg_info": {
       "user_info": {
-        "patient_name": "The patient's name", // Name of the current patient
-        "gender": 1, // Gender of the current patient: 1-Male, 2-Female, 0-Unknown
-        "birth": 775238400000, // Timestamp (in milliseconds) of the current patient's date of birth, accurate to the year, month, and day
+        "patient_name": "The patient's name", // patient name
+        "gender": 1, // gender: 1-Male, 2-Female, 0-Unknown
+        "birth": 775238400000, // date of birth, timestamp of year/month/day
         "language": "zh-CN"// see Language
       },
       "measure_info": {
         "device_type": 88, // see DeviceType
         "device_sn": "2208820499", // Device serial number
         "measure_time": 1701826514000, // The start timestamp of this measurement
-        "duration": 2860, // The duration of this measurement session, in seconds
+        "duration": 2860, // The duration of this measurement, unit: second
         "time_zone": 28800 // Timezone offset in seconds. Default is UTC. For example: UTC=0, GMT+8=28800
       }
   }
-}
 ```
 
-> RESPONSE
 
-**Headers:**
-
-| name         | value               | required | desc |
-|--------------|---------------------|----------|------|
-| content-type | multipart/form-data | NO       |      |
+#### Response
 
 **Body:**
 
-| name | type    | desc    |
-|------|---------|---------|
-| code | integer | code    |
-| msg  | string  | message |
-| data | object  | data    |
-
-**Example:**
-![image](./image/ecg_analysis.png)
-
-**Response Demo:**
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| code | integer | Response code |
+| msg | string | Message |
+| data | object | Response data including ECG ID |
 
 ```json
 {
@@ -90,131 +72,83 @@
 }
 ```
 
----
-## Query ECG status
+#### Example
+![image](./image/ecg_analysis.png)
 
-> BASIC
+### 2. Query ECG Analysis status
 
-**Path:** /v1/third/queryEcgStatus
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/queryEcgStatus`
+- **Method:** POST
 
-**Method:** POST
+#### Request
 
-> REQUEST
+##### Headers
 
-**Headers:**
-
-| name | value | required | desc |
+| Name | Value | Required | Description |
 | ------------ | ------------ | ------------ | ------------ |
 | Content-Type | application/json | YES |  |
 
 **Request Body:**
 
-| name     | type   | desc                   |
-|----------|--------|------------------------|
-| ecg_ids  | array  | Collection of ECG IDs. |
-|          | string |                        |
+| Name | Value | Required | Description |
+| ------------ | ------------ | ------------ | ------------ |
+| ecg_ids | array | Yes | Collection of ECG IDs |
 
-**Request Demo:**
-
+###### ecg_ids
 ```json
 {
-  "ecg_ids": [
-    "MTc0MDU3NDU5MDk2OTU0MDYxMjM=",
-    "MTc0MDU3MDMyNDE1ODYxNTU1Mw==",
-    "MTc0MDU3MDM5NzQ5NjAyMDk5Mw==",
-    "MTc0MDU3MDQ4OTgxMjY1MjAzNA==",
-    "MTc0MDU3MTY2MTk5NDc3MDQzMw==",
-    "MTc0MDU3NDUyMzIzNTcyNTMxMw==",
-    "MTc0MDU3NDU5MDk2OTU0MDYxMA=="
-  ]
+  "ecg_ids": ["ECG_ID_1", "ECG_ID_2", ...]
 }
 ```
 
-> RESPONSE
-
-**Headers:**
-
-| name | value | required | desc |
-| ------------ | ------------ | ------------ | ------------ |
-| content-type | application/json;charset=UTF-8 | NO |  |
+#### Response
 
 **Body:**
 
-| name                                  | type     | desc                                                                                                                  |
-|---------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------|
-| code                                  | integer  | code                                                                                                                  |
-| msg                                   | string   | message                                                                                                               |
-| data                                  | object   | data                                                                                                                  |
-| &ensp;&ensp;&#124;─                   | object   |                                                                                                                       |
-| &ensp;&ensp;&ensp;&ensp;&#124;─ecgId  | string   | The ECG ID                                                                                                            |
-| &ensp;&ensp;&ensp;&ensp;&#124;─status | string   | ECG status<br>00000000 <br>00000001 <br>00000002 <br>10010391 <br>10010202 <br>02000106 <br>10010105 |
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| code | integer | Response code |
+| msg | string | Message |
+| data | object | Response data including ECG status |
 
-**Example:**
-![image](./image/query_ecg_status.png)
-
-**Response Demo:**
+##### status_code
+| status   | description                                        |
+|--------------|----------------------------------------------------|
+| 00000000 | ECG data does not exist.               |
+| 00000001 | attempt to analysis has failed, try again.  |
+| 00000002 | ECG analysing.            |
+| 10010391 | ECG analysis success.       |
+| 10010202 | ECG analysis failed.          |
+| 02000106 | ECG analysis abnormal, or the service is not available now.|
+| 02000106 | valid ecg data is not enough. |
 
 ```json
 {
   "code": 200,
   "msg": "success",
   "data": [
-    {
-      "ecgId": "MTc0MDU3NDU5MDk2OTU0MDYxMjM=",
-      "status": "00000000"
-    },
-    {
-      "ecgId": "MTc0MDU3MDMyNDE1ODYxNTU1Mw==",
-      "status": "00000001"
-    },
-    {
-      "ecgId": "MTc0MDU3MDM5NzQ5NjAyMDk5Mw==",
-      "status": "00000001"
-    },
-    {
-      "ecgId": "MTc0MDU3MDQ4OTgxMjY1MjAzNA==",
-      "status": "10010202"
-    },
-    {
-      "ecgId": "MTc0MDU3MTY2MTk5NDc3MDQzMw==",
-      "status": "02000106"
-    },
-    {
-      "ecgId": "MTc0MDU3NDUyMzIzNTcyNTMxMw==",
-      "status": "10010105"
-    },
-    {
-      "ecgId": "MTc0MDU3NDU5MDk2OTU0MDYxMA==",
-      "status": "10010391"
-    }
+    {"ecgId": "ECG_ID_1", "status": "status_code"},
+    {"ecgId": "ECG_ID_2", "status": "status_code"},
+    ...
   ]
 }
 ```
 
-**ECG status**
-
-| status       | description                                        |
-|--------------|----------------------------------------------------|
-| 00000000     | The current ECG data does not exist.               |
-| 00000001     | The attempt to create an ECG analysis has failed.  |
-| 00000002     | The current ECG data is being analyzed.            |
-| 10010391     | The current ECG data analysis is successful.       |
-| 10010202     | The current ECG data analysis has failed.          |
-| 02000106     | The current ECG data analysis is abnormal.         |
-| 02000106     | There is insufficient ECG data currently available |
+#### Example
+![image](./image/query_ecg_status.png)
 
 
-### Query ECG result
+### 3. Query ECG result
 
-> BASIC
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/queryEcgResult`
+- **Method:** POST
 
-**Path:** /viatom-platform/v1/third/queryEcgResult
+#### Request
 
-**Method:** POST
+##### Headers
 
-> REQUEST
-
-**Headers:**
 
 | name         | value            | required | desc |
 |--------------|------------------|----------|------|
@@ -227,8 +161,7 @@
 | ecg_ids  | array  | Collection of ECG IDs. |
 |          | string |                        |
 
-**Request Demo:**
-
+###### ecg_ids
 ```json
 {
   "ecg_ids": [ // Collection of ECG IDs
@@ -237,35 +170,23 @@
 }
 ```
 
-> RESPONSE
-
-**Headers:**
-
-| name         | value                          | required | desc |
-|--------------|--------------------------------|----------|------|
-| content-type | application/json;charset=UTF-8 | NO       |      |
+#### Response
 
 **Body:**
 
-| name                                            | type    | desc                                               |
-|-------------------------------------------------|---------|----------------------------------------------------|
-| code                                            | integer | code                                               |
-| msg                                             | string  | message                                            |
-| data                                            | object  | data                                               |
-| &ensp;&ensp;&#124;─                             | object  |                                                    |
-| &ensp;&ensp;&ensp;&ensp;&#124;─id               | integer | The ECG ID                                         |
-| &ensp;&ensp;&ensp;&ensp;&#124;─diagnosis_result | string  | ECG analysis diagnostic results..                  |
-| &ensp;&ensp;&ensp;&ensp;&#124;─result_path      | string  | Text path of the ECG analysis result.              |
-| &ensp;&ensp;&ensp;&ensp;&#124;─report_path      | string  | Path to the PDF report of the ECG analysis result. |
-| &ensp;&ensp;&ensp;&ensp;&#124;─complete_time    | string  | Time of completion for the ECG analysis.           |
+| name  | type    | desc                                               |
+|------|---------|----------------------------------------------------|
+| code   | integer | code                                               |
+| msg  | string  | message                                            |
+| data   | object  | Collection of ECG analysis result   |
+| - ecg_id  | integer | ECG analysis ID  |
+| - diagnosis_result | string  | ECG analysis diagnostic result |
+| - result_path | string  | full ECG analysis result  |
+| - report_path | string  | ECG analysis PDF report url |
+| - complete_time| string  | time of ECG analysis complete. |
 
-**Example:**
-![image](./image/query_ecg_result.png)
-
-**Response Demo:**
-
+##### ECG analysis result
 ```json
-// ps: Only return the analyzed ECG data.
 {
   "code": 0,
   "msg": "",
@@ -279,7 +200,7 @@
               "sample": "250", // Sampling Rate
               "analysisTime": "2023-12-29 11:24:56", // Analyze Time 
               "analysisDuration": 2860, // Analysis Duration
-              "name": "周小昊", // Name
+              "name": "Zhou", // Name
               "sex": "00160001", // Gender
               "age": "{\"d\": 2, \"m\": 5, \"w\": 0, \"y\": 29}", // Age
               "createTime": "2023-12-29 11:24:55", // Record Date   
@@ -349,7 +270,11 @@
 }
 ```
 
-### Language
+#### Example
+![image](./image/query_ecg_result.png)
+
+### 4. Appendix
+#### Language
 
 | language | description        |
 |----------|--------------------|
@@ -360,7 +285,7 @@
 | es-ES    | Spanish            |
 | fr-FR    | French             |
 
-### Device type
+#### Device type
 
 | device type | device name                   |
 |-------------|-------------------------------|
@@ -454,7 +379,7 @@
 | 88          | Lepod PRO                     |
 | 89          | M12                           |
 
-### Error code
+#### Error code
 
 | code   | message                       | desc                          |
 |--------|-------------------------------|-------------------------------|

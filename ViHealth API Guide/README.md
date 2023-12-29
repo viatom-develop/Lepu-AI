@@ -1,9 +1,8 @@
 **Welcome to the ViHealth API Guide 🌟**
 
-Currently we offer these services:
+We are delighted to introduce you to ViHealth, your gateway to a world of healthcare data integration and AI-powered ECG analysis. This comprehensive API guide is designed to help you unlock the full potential of our services, enabling you to build innovative applications that with Viatom, Wellue, and Lepu Medical devices. With ViHealth, you can seamlessly access and interpret a wide range of health data, including ECG (from 1-lead to 12-lead), Blood Pressure, Blood Oxygen, Sleep Patterns, Blood Glucose, and more.
 
 # Our Services 📋
-We are delighted to introduce you to ViHealth, your gateway to a world of healthcare data integration and AI-powered ECG analysis. This comprehensive API guide is designed to help you unlock the full potential of our services, enabling you to build innovative applications that with Viatom, Wellue, and Lepu Medical devices. With ViHealth, you can seamlessly access and interpret a wide range of health data, including ECG (from 1-lead to 12-lead), Blood Pressure, Blood Oxygen, Sleep Patterns, Blood Glucose, and more.
 
 ## 1. ViHealth Data Integration 📊
 With ViHealth Data Integration, you gain access to a treasure trove of health data recorded by our suite of medical devices. Whether you are interested in ECG readings, blood pressure monitoring, or sleep analysis, our API empowers you to harness this valuable information for your applications.
