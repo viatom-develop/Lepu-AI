@@ -378,6 +378,8 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | 87          | ER2 S                         |
 | 88          | Lepod PRO                     |
 | 89          | M12                           |
+| 999         | other single lead             |
+| 1000        | other multi-lead              |
 
 #### Error code
 
