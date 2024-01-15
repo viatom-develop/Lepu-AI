@@ -1,33 +1,27 @@
-### Common API url
+## ViHealth Data-Query API
 
-> COMMON
+### Host URL
+- **Development Environment:** `https://testai.viatomtech.com`
+- **Production Environment:**
+    - US Server: `https://ai.viatomtech.com`
+    - EU Server: `https://eu-cloud.viatomtech.com`
 
-**Host（Dev）:** https://testai.viatomtech.com
 
-**Host（Online）:**
+### 1. Request User's Data
 
-(US server address): https://ai.viatomtech.com
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/queryUserData`
+- **Method:** POST
 
-(EU server address): https://eu-cloud.viatomtech.com
+#### Request
 
-### Query device data
-
-> BASIC
-
-**Path:** /viatom-platform/v1/third/queryDeviceData
-
-**Method:** POST
-
-> REQUEST
-
-**Headers:**
-
-| name           | value              | required | desc           |
-|----------------|--------------------|----------|----------------|
-| Content-Type   | application/json   | YES      |                |
-| secret-key     | **Secret**         | YES      | Secret         |
-| Access-token   | **Access-Token**   | YES      | Access-Token   |
-| application-id | **Application-ID** | NO       | Application-ID |
+##### Headers
+| name           | value             | required | desc       |
+|----------------|-------------------|----------|------------|
+| Content-Type   | application/json  | YES      |            |
+| secret-key     | *Secret*          | Yes      | API secret |
+| Access-token   | *Access-Token*    | Yes      | API token  |
+| application-id | *Application-ID*  | No       | App ID     |
 
 **Request Body:**
 
@@ -43,21 +37,15 @@
 
 ```json
 {
-  "current": 1,
-  "size": 10,
+  "current": "1",
+  "size": "10",
   "data_type": 1,
   "start_time": 2675490530000,
   "end_time": 2675490540001
 }
 ```
 
-> RESPONSE
-
-**Headers:**
-
-| name         | value                          | required | desc |
-|--------------|--------------------------------|----------|------|
-| content-type | application/json;charset=UTF-8 | NO       |      |
+#### Response
 
 **Body:**
 
@@ -66,6 +54,61 @@
 | code | integer | code    |
 | msg  | string  | message |
 | data | object  | data    |
+
+[Click here](###Common Response)
+
+
+### 2. Request Device's Data
+
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/queryDeviceData`
+- **Method:** POST
+
+#### Request
+
+##### Headers
+| name           | value             | required | desc |
+|----------------|-------------------| ------------ | ------------ |
+| Content-Type   | application/json  | YES |  |
+| secret-key     | *Secret*          | Yes      | API secret   |
+| Access-token   | *Access-Token*    | Yes      | API token    |
+| application-id | *Application-ID*  | No       | App ID       |
+
+**Request Body:**
+
+| name       | type    | required | desc                                                                                                                                                                          |
+|------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| current    | integer | NO       | current page                                                                                                                                                                  |
+| size       | integer | NO       | current page item size                                                                                                                                                        |
+| data_type  | integer | YES      | data type<br>1 :Temperature<br>2 :SpO2<br>3 :Blood Pressure<br>4 :Blood Gucose<br>5 :ECG<br>6 :Heart Rate<br>7 :Sleep<br>9 :Cholesterol<br>10 :Weight<br>15 :Fetal Heart Rate |
+| start_time | integer | NO       | start timestamp                                                                                                                                                               |
+| end_time   | integer | NO       | end timestamp                                                                                                                                                                 |
+
+**Request Demo:**
+
+```json
+{
+  "current": "1",
+  "size": "10",
+  "data_type": 1,
+  "start_time": 2675490530000,
+  "end_time": 2675490540001
+}
+```
+
+#### Response
+
+**Body:**
+
+| name | type    | desc    |
+|------|---------|---------|
+| code | integer | code    |
+| msg  | string  | message |
+| data | object  | data    |
+
+[Click here](###Common Response)
+
+### Common Response
 
 **Example:**
 ![image](./image/query_device_data.png)
