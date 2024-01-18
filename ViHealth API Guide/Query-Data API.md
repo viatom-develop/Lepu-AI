@@ -602,6 +602,7 @@
 | 101009 | No authorized user exists.    | unauthorized user found       |
 | 101017 | ECG analysis failed.          | ECG file upload failed.       |
 | 101018 | Your balance is insufficient. | Your balance is insufficient. |
+| 101025 | The user token has expired.   | User token has expired.   |
 | 109993 | Access token is invalid.      | API invalid Access-token      |
 | 109994 | The request was not granted.  | API unauthorized Access-token |
 | 109996 | Access token error.           | API Access-token not matched  |
