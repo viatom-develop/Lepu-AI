@@ -10,7 +10,7 @@
 ### 1. Request User's Data
 
 #### Endpoint
-- **Path:** `/viatom-platform/v1/third/queryUserData`
+- **Path:** `/viatom-platform/v1/third/queryUserAuthInfo`
 - **Method:** POST
 
 #### Request
@@ -25,23 +25,17 @@
 
 **Request Body:**
 
-| name       | type    | required | desc                                                                                                                                                                          |
-|------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| current    | integer | NO       | current page                                                                                                                                                                  |
-| size       | integer | NO       | current page item size                                                                                                                                                        |
-| data_type  | integer | YES      | data type<br>1 :Temperature<br>2 :SpO2<br>3 :Blood Pressure<br>4 :Blood Gucose<br>5 :ECG<br>6 :Heart Rate<br>7 :Sleep<br>9 :Cholesterol<br>10 :Weight<br>15 :Fetal Heart Rate |
-| start_time | integer | NO       | start timestamp                                                                                                                                                               |
-| end_time   | integer | NO       | end timestamp                                                                                                                                                                 |
+| name       | type    | required | desc                   |
+|------------|---------|----------|------------------------|
+| current    | integer | NO       | current page           |
+| size       | integer | NO       | current page item size |
 
 **Request Demo:**
 
 ```json
 {
   "current": "1",
-  "size": "10",
-  "data_type": 1,
-  "start_time": 2675490530000,
-  "end_time": 2675490540001
+  "size": "10"
 }
 ```
 
@@ -55,8 +49,40 @@
 | msg  | string  | message |
 | data | object  | data    |
 
-[Click here](###Common Response)
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "records": [
+      {
+        "user_token": "EB21ECD2-ED19-4084-B8B6-A07DB82D2AF4", // user's access token
+        "user_id": "MTcwNDc4OTcyNTEyNDk5NzEyMnwzMjAwMA==", // user's ID
+        "data_share_items": [  // Data item code shared by users
+          "Weight", // Weight
+          "Blood Pressure", // Blood Pressure
+          "ECG", // ECG
+          "Oxygen Level", // SpO2
+          "Temperature",  // Temperature
+          "Blood Glucose", // Blood Gucose
+          "Baby Heart", // Fetal Heart Rate
+          "Sleep", // Sleep
+          "Blood Lipids", // Cholesterol
+          "Heart Rate" // Heart Rate
+        ],
+        "expire_time": "1758181319000" // The expiration time of shared data
+      }
+    ],
+    "total": "1", // total item count
+    "size": "10", // current page item count
+    "current": "1", // current page
+    "pages": "1"// total pages
+  }
+}
+```
 
+**Example:**
+![image](./image/query_user_data.png)
 
 ### 2. Request Device's Data
 
@@ -76,13 +102,16 @@
 
 **Request Body:**
 
-| name       | type    | required | desc                                                                                                                                                                          |
-|------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| current    | integer | NO       | current page                                                                                                                                                                  |
-| size       | integer | NO       | current page item size                                                                                                                                                        |
-| data_type  | integer | YES      | data type<br>1 :Temperature<br>2 :SpO2<br>3 :Blood Pressure<br>4 :Blood Gucose<br>5 :ECG<br>6 :Heart Rate<br>7 :Sleep<br>9 :Cholesterol<br>10 :Weight<br>15 :Fetal Heart Rate |
-| start_time | integer | NO       | start timestamp                                                                                                                                                               |
-| end_time   | integer | NO       | end timestamp                                                                                                                                                                 |
+| name                | type     | required | desc                                                                                                                                                                          |
+|---------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| current             | integer  | NO       | current page                                                                                                                                                                  |
+| size                | integer  | NO       | current page item size                                                                                                                                                        |
+| user_token          | String   | NO       | You can fetch data for a specific user                                                                                                                                        |
+| device_sns          | array    | NO       | You can fetch data for a specific device                                                                                                                                      |
+| &ensp;&ensp;&#124;─ | string   |          |                                                                                                                               |
+| data_type           | integer  | YES      | data type<br>1 :Temperature<br>2 :SpO2<br>3 :Blood Pressure<br>4 :Blood Gucose<br>5 :ECG<br>6 :Heart Rate<br>7 :Sleep<br>9 :Cholesterol<br>10 :Weight<br>15 :Fetal Heart Rate |
+| start_time          | integer  | NO       | start timestamp                                                                                                                                                               |
+| end_time            | integer  | NO       | end timestamp                                                                                                                                                                 |
 
 **Request Demo:**
 
@@ -106,10 +135,6 @@
 | msg  | string  | message |
 | data | object  | data    |
 
-[Click here](###Common Response)
-
-### Common Response
-
 **Example:**
 ![image](./image/query_device_data.png)
 
@@ -124,7 +149,8 @@
     "records": [
       {
         "type": 1, // record type
-        "user_id": "MzIwMDA=|bnVsbA==", // user's ID
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "0000000000", // device sn
         "data_tag": "VEVNUEVSQVRVUkVAMzE3Ng==", // item unique
         "data": {
@@ -159,7 +185,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "21092F3633",
         "data_tag": "QkxPT0RfT1hZR0VOQDE2MTI3",
         "data": {
@@ -216,7 +243,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "2106374387",
         "data_tag": "QkxPT0RfUFJFU1NVUkVAMjI4NzY=",
         "data": {
@@ -266,7 +294,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "",
         "data_tag": "QkxPT0RfU1VHQVJAMjQ1Nw==",
         "data": {
@@ -301,7 +330,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "2302170805",
         "data_tag": "RUNHQDM4OTA2",
         "data": {
@@ -342,7 +372,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "2107441785",
         "data_tag": "SEVBUlRfUkFURUAxMTA0",
         "data": {
@@ -378,7 +409,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "2208620079",
         "data_tag": "U0xFRVBAMTE2",
         "data": {
@@ -424,7 +456,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "",
         "data_tag": "QkxPT0RfRkFUQDQ3NzE=",
         "data": {
@@ -474,7 +507,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "Lescale Lite D0:4D:00:0E:01:FF",
         "data_tag": "Qk9EWV9GQVRANzI=",
         "data": {
@@ -517,7 +551,8 @@
     "records": [
       {
         "type": 1,
-        "user_id": "MzIwMDA=|bnVsbA==",
+        "user_id": "MnwzMjAwMA==", // user's ID
+        "member_id": "Mnw1MjUx", // member's ID
         "device_sn": "",
         "data_tag": "RkVUQUxfSEVBUlRAODU0",
         "data": {
