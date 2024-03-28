@@ -162,7 +162,8 @@
               "value": 36.94, // temp value
               "unit": "Cel"// unit
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000", // item create timestamp
         "update_time": "1694676339000"// item update timestamp
@@ -220,7 +221,8 @@
               "unit": ""
             },
             "file_url": "https://elasticbeanstalk-us-west-2-697648770036.s3.us-west-2.amazonaws.com/viatomstoragetest/data/ecg/2023/0912/758547cb-1d22-420f-a501-22af6ee4d233.dat"// spo2 file url
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -271,7 +273,8 @@
               "value": 0,
               "unit": "mmHg"
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -307,7 +310,8 @@
               "value": 0.00,
               "unit": "mmol/l"
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -349,7 +353,8 @@
               "diagnose_info": "窦性心律", // result description
               "report_file_url": "https://elasticbeanstalk-us-west-2-697648770036.s3.us-west-2.amazonaws.com/viatomstoragetest/data/ecg/2023/0414/e0dc518e-a2b1-4bc4-9cc5-bfd7847db2b8.pdf"// pdf report url
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -385,7 +390,8 @@
               "value": 59,
               "unit": "bpm"
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -432,7 +438,8 @@
                 "duration": 328
               }
             ]
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -484,7 +491,8 @@
               "value": null,
               "unit": ""
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -528,7 +536,8 @@
               "value": null,
               "unit": ""
             }
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
@@ -573,7 +582,8 @@
             },
             "times": 0,
             "duration": 27
-          }
+          },
+          "remark": "" // remark
         },
         "create_time": "1665619050000",
         "update_time": "1665619050000"
