@@ -559,15 +559,15 @@
           "data_type": 15,
           "measure_time": "1694676339000",
           "measure_result": {
-            "minHr": {// min HR
+            "min_hr": {// min HR
               "value": 68,
               "unit": "bpm"
             },
-            "avgHr": {// avg HR
+            "avg_hr": {// avg HR
               "value": 92,
               "unit": "bpm"
             },
-            "maxHr": {// max HR
+            "max_hr": {// max HR
               "value": 137,
               "unit": "bpm"
             },
