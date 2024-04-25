@@ -88,6 +88,9 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | Name | Value | Required | Description |
 | ------------ | ------------ | ------------ | ------------ |
 | Content-Type | application/json | YES |  |
+| secret-key      | *Secret*          | Yes      | API secret   |
+| Access-token    | *Access-Token*    | Yes      | API token    |
+| application-id  | *Application-ID*  | No       | App ID       |
 
 **Request Body:**
 
@@ -153,6 +156,9 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | name         | value            | required | desc |
 |--------------|------------------|----------|------|
 | Content-Type | application/json | YES      |      |
+| secret-key      | *Secret*          | Yes      | API secret   |
+| Access-token    | *Access-Token*    | Yes      | API token    |
+| application-id  | *Application-ID*  | No       | App ID       |
 
 **Request Body:**
 
