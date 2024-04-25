@@ -29,7 +29,7 @@
 | ecg_info    | string | Yes      | JSON string containing user and measurement info.|
 
 ###### file
-ECG file is required to request AI-ECG analysis. You can use the ECG file download form our device or use our standard 1-lead .txt ECG format(English doc TBD).
+ECG file is required to request AI-ECG analysis. You can use the ECG file download from our device or use our standard 1-lead .txt ECG format(English doc TBD).
 [sample ECG files](https://github.com/viatom-develop/Lepu-AI/tree/main/ecg_demo_file)
 
 ###### ecg_info
