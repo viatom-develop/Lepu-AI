@@ -124,7 +124,7 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | 10010391 | ECG analysis success.       |
 | 10010202 | ECG analysis failed.          |
 | 02000106 | ECG analysis abnormal, or the service is not available now.|
-| 02000106 | valid ecg data is not enough. |
+| 10010105 | valid ecg data is not enough. |
 
 ```json
 {
