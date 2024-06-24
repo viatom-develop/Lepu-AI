@@ -966,7 +966,7 @@
             "weight":80 // 体重kg，非必填
             //gender、birthday会影响分析结果，请填写真实数据
         },
-        "analysis_type": "1", // 1短程，2长程 (心电数据录制时长超过15分钟为长程，反之为短程)
+        "analysis_type": "1", // 1短程，2长程
         "service_ability": 1, // 1 AI分析， 2 医生签字报告
         "access_token": "", // 对应服务能力的AccessToken
         "application_id": "xxx.xxx.xx", //应用id(应用包名,注意格式)
