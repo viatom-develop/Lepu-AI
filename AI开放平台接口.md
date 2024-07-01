@@ -51,7 +51,7 @@
    | ------------ | -------- | ------------ | ---------------------------------------- |
    | secret       | 是       | string       | 乐普给出                                 |
    | access-token | 是       | string       | 乐普给出, 不同业务使用不同的access_token |
-   | language     | 是       | string       | zh-CN  / en-US                           |
+   | language     | 是       | string       | zh-CN 或 en-US                           |
 
 5. 公共出参
 
