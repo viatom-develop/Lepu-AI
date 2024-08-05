@@ -84,7 +84,67 @@
 **Example:**
 ![image](./image/query_user_data.png)
 
-### 2. Request Device's Data
+### 2. Request User's Information
+
+#### Endpoint
+- **Path:** `/viatom-platform/v1/third/queryUserInfo`
+- **Method:** POST
+
+#### Request
+
+##### Headers
+| name           | value             | required | desc       |
+|----------------|-------------------|----------|------------|
+| Content-Type   | application/json  | YES      |            |
+| secret-key     | *Secret*          | Yes      | API secret |
+| Access-token   | *Access-Token*    | Yes      | API token  |
+| application-id | *Application-ID*  | No       | App ID     |
+
+**Request Body:**
+
+| name       | type    | required | desc                   |
+|------------|---------|----------|------------------------|
+| userToken  | String  | YES       | user's access token    |
+
+**Request Demo:**
+
+```json
+{
+    "userToken": "EB21ECD2-ED19-4084-B8B6-A07DB82D2AF4"
+}
+```
+
+#### Response
+
+**Body:**
+
+| name | type    | desc    |
+|------|---------|---------|
+| code | integer | code    |
+| msg  | string  | message |
+| data | object  | data    |
+
+```json
+{
+    "code": 200,
+    "msg": "success",
+    "data": {
+        "userToken": "EB21ECD2-ED19-4084-B8B6-A07DB82D2AF4", // user's access token
+        "userId": "MTcwNDc4OTcyNTEyNDk5NzEyMnwzMjAwMA==", // user's ID
+        "name": "挥手", // user's name
+        "email": "862599479@qq.com", // user's email
+        "gender": 1, // user's gender, 1-male 2-female
+        "birthDay": "599630400000", // user's birthday
+        "height": 180.0, // user's height, unit: cm
+        "weight": 70.0 // user's weight, unit: kg
+    }
+}
+```
+
+**Example:**
+![image](./image/query_user_info.png)
+
+### 3. Request Device's Data
 
 #### Endpoint
 - **Path:** `/viatom-platform/v1/third/queryDeviceData`
