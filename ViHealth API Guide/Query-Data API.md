@@ -211,6 +211,7 @@
         "type": 1, // record type
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "0000000000", // device sn
         "data_tag": "VEVNUEVSQVRVUkVAMzE3Ng==", // item unique
         "data": {
@@ -248,6 +249,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "21092F3633",
         "data_tag": "QkxPT0RfT1hZR0VOQDE2MTI3",
         "data": {
@@ -307,6 +309,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "2106374387",
         "data_tag": "QkxPT0RfUFJFU1NVUkVAMjI4NzY=",
         "data": {
@@ -359,6 +362,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "",
         "data_tag": "QkxPT0RfU1VHQVJAMjQ1Nw==",
         "data": {
@@ -396,6 +400,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "2302170805",
         "data_tag": "RUNHQDM4OTA2",
         "data": {
@@ -439,6 +444,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "2107441785",
         "data_tag": "SEVBUlRfUkFURUAxMTA0",
         "data": {
@@ -477,6 +483,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "2208620079",
         "data_tag": "U0xFRVBAMTE2",
         "data": {
@@ -525,6 +532,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "",
         "data_tag": "QkxPT0RfRkFUQDQ3NzE=",
         "data": {
@@ -577,6 +585,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "Lescale Lite D0:4D:00:0E:01:FF",
         "data_tag": "Qk9EWV9GQVRANzI=",
         "data": {
@@ -622,6 +631,7 @@
         "type": 1,
         "user_id": "MnwzMjAwMA==", // user's ID
         "member_id": "Mnw1MjUx", // member's ID
+        "name": "your name", // member's name
         "device_sn": "",
         "data_tag": "RkVUQUxfSEVBUlRAODU0",
         "data": {
