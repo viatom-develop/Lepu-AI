@@ -418,6 +418,7 @@
               "diagnose_info": "窦性心律", // result description
               "report_file_url": "https://elasticbeanstalk-us-west-2-697648770036.s3.us-west-2.amazonaws.com/viatomstoragetest/data/ecg/2023/0414/e0dc518e-a2b1-4bc4-9cc5-bfd7847db2b8.pdf"// pdf report url
             }
+            "diagnosis_result": 0 // 0:regular, 1:tachycardia, 2:bradycardia, -1:poor signal, other values:irregular
           },
           "remark": "" // remark
         },
