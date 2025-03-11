@@ -130,7 +130,7 @@
 ### 2.3 分析状态批量查询
 
 - 该接口适用于动态心电、静息心电。对应的状态值描述请在附录中查看。
-- 调用查询分析结果接口前，先调用该接口获取状态，分析成功后再去获取结果。
+- 该接口中的状态为“分析完成”时，分析结果和分析报告皆已完成。
 
 &emsp;&emsp;接口地址：POST&emsp;`${host}/api/v1/ecg/analysis/batch_status/query` \
 &emsp;&emsp;Content-Type：`application/json` \
@@ -179,7 +179,8 @@
 ```
 
 ### 2.4 获取分析结果
->请求该接口前，请先获取分析状态，分析完成后再请求
+- 请求该接口前，请先调用“分析状态批量查询”接口，状态为“分析完成”后再请求该接口。
+- 由于PDF的分析报告绘制需要时间，因此该接口状态为“分析完成”时，报告有可能还未生成完成。
 
 &emsp;&emsp;接口地址：POST&emsp;`${host}/api/v1/ecg/analysis/result/query` \
 &emsp;&emsp;Content-Type：`application/json`
