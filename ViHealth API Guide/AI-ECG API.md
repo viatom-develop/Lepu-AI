@@ -291,6 +291,63 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | es-ES    | Spanish            |
 | fr-FR    | French             |
 
+#### AI-ECG diagnosis code
+| code	| Chinese	| English | Spanish	| Italian | French	| German |
+| ----- | --------- | ------- | ------- | ------- | ---- | ---- |
+| 10000	| 室性早搏	| PVC(Premature Ventricular Contraction)	| CVP (contracción ventricular prematura)	| CVP (Contrazione Ventricolare Prematura)	| PVC (Contraction ventriculaire prématurée)	| VPB (Vorzeitige ventrikuläre Kontraktion) |
+| 10001	| 室性早搏成对	| Couplet of PVC	| Doblete de CVP	| Coppia di CVP	| Couplet de PVC	| VPB Paar |
+| 10002	| 室性早搏二联律	| PVC Bigeminy	| CVP bigémino	| Bigeminismo CVP	| PVC Bigeminy	| VPB Bigeminie |
+| 10003	| 室性早搏三联律	| PVC Trigeminy	| CVP trigémino	| Trigeminismo CVP	| PVC Trigeminy	| VPB Trigeminie |
+| 10004	| 室性逸搏	| Ventricular Escape Beat	| Latido de escape ventricular	| Battito di fuga ventricolare	| Battement d'échappement ventriculaire	| Ventrikulärer Fluchtschlag |
+| 10005	| 室性逸搏心律	| Ventricular Escape Rhythm	| Ritmo de escape ventricular	| Ritmo di fuga ventricolare	| Rythme d'échappement ventriculaire	| Ventrikulärer Fluchtrythmus |
+| 10006	| 加速性室性自主心律	| Accelerated Idioventricular Rhythm	| Ritmo idioventricular acelerado	| Ritmo accelerato idioventricolare	| Rythme idioventriculaire accéléré	| Beschleunigter idioventrikulärer Rhythmus |
+| 10007	| 最长室性心动过速	| Longest ventricular tachycardia	| Taquicardia ventricular más larga	| Tachicardia Ventricolare Lunga	| Tachycardie ventriculaire la plus longue	| Längste ventrikuläre Tachykardie |
+| 10008	| 最快室性心动过速	| Fastest ventricular Tachycardia	| Taquicardia ventricular más rápida	| Tachicardia Ventricolare Veloce	| Tachycardie ventriculaire la plus rapide	| Schnellste ventrikuläre Tachykardie |
+| 10009	| 室性心动过速	| Ventricular Tachycardia	| Taquicardia ventricular	| Tachicardia Ventricolare	| Tachycardie ventriculaire	| Ventrikuläre Tachykardie |
+| 10010	| 最快及最长室性心动过速	| Fastest And Longest Ventricular Tachycardia	| Taquicardia ventricular más rápida y más larga	| Tachicardia Ventricolare Veloce e Lunga	| Tachycardie ventriculaire la plus rapide et la plus longue	| Schnellste und längste ventrikuläre Tachykardie |
+| 10011	| 短阵室性心动过速	| Short burst of ventricular tachycardia	| Episodio breve de taquicardia ventricular	| Scariche brevi di tachicardia ventricolare	| Courte salve de tachycardie ventriculaire	| Kurzer Ausbruch von ventrikulärer Tachykardie |
+| 11000	| 室上性早搏	| PAC(Premature Supraventricular Contraction)	| CAP (contracción auricular prematura)	| CSP (Contrazione prematura sopraventricolare)	| PAC (contraction supraventriculaire prématurée)	| SVES (Vorzeitige supraventrikuläre Kontraktion) |
+| 11001	| 室上性早搏成对	| Couplet of PAC	| Doblete de CAP	| Coppia di CSP	| Couplet de PAC	| SVES Paar |
+| 11002	| 室上性早搏二联律	| PAC Bigeminy	| CAP bigémino	| Bigeminismo CSP	| PAC Bigeminy	| SVES Bigeminie |
+| 11003	| 室上性早搏三联律	| PAC Trigeminy	| CAP trigémino	| Trigeminismo CSP	| PAC trigéminé	| SVES Trigeminie |
+| 11004	| 房性逸搏	| Atrial Escape Beat	| Latido de escape auricular	| Battito di fuga atriale	| Battement d'échappement auriculaire	| Atrialer Fluchtschlag |
+| 11005	| 房性逸搏心律	| Atrial Escape Rhythm	| Ritmo de escape auricular	| Ritmo di fuga atriale	| Rythme d'échappement auriculaire	| Atrialer Fluchtrhythmus |
+| 11006	| 交界性逸搏	| Junctional Escape Beat	| Latido de escape de la unión	| Battito di fuga giunzionale	| Battement d'échappement jonctionnel	| Junktionaler Fluchtschlag |
+| 11007	| 交界性逸搏心律	| Junctional Escape Rhythm	| Ritmo de escape de la unión	| Ritmo di fuga giunzionale	| Rythme d'échappement jonctionnel	| Funktionaler Fluchtrhvythmus |
+| 11008	| 非阵发性室上性心动过速	| Accelerated Atrial Tachycardia	| Taquicardia auricular acelerada	| Tachicardia atriale accelerata	| Tachycardie auriculaire accélérée	| Beschleunigte atriale Tachykardie |
+| 11009	| 最快室上性心动过速	| Fastest Supraventricular Tachycardia	| Taquicardia supraventricular más rápida	| tachicardia sopraventricolare veloce	| Tachycardie supraventriculaire la plus rapide	| Schnellste supraventrikuläre Tachykardie |
+| 11010	| 最长室上性心动过速	| Longest Supraventricular Tachycardia	| Taquicardia supraventricular más larga	| Tachicardia sopraventricolare lunga	| Tachycardie supraventriculaire la plus longue	| Längste supraventrikuläre Tachykardie |
+| 11011	| 室上性心动过速	| Supraventricular Tachycardia	| Taquicardia supraventricular	| Tachicardia sopraventricolare	| Tachycardie supraventriculaire	| Supraventrikuläre Tachykardie |
+| 11012	| 最长及最快室上性心动过速	| Fastest And Longest Supraventricular Tachycardia	| Taquicardia supraventricular más rápida y más larga	| tachicardia sopraventricolare veloce e lunga	| Tachycardie supraventriculaire la plus rapide et la plus longue	| Schnellste und längste supraventrikuläre Tachykardie |
+| 11013	| 短阵室上性心动过速	| Short Burst Of Supraventricular Tachycardia	| Episodio breve de taquicardia supraventricular	| Scariche brevi di tachicardia sopraventricolare	| Tachycardie supraventriculaire à courte durée d'action	| Kurzer Ausbruch von supraventrikulärer Tachykardie |
+| 11015	| 完全性左束支阻滞	| CLBBB(Complete Left Bundle Branch Block)	| BCRI (Bloqueo completo de rama izquierda)	| BCBD (Blocco Completa di branca sinistro)	| CLBBB (bloc de branche gauche complet)	| CLBBB (kompletter Linksschenkelblock) |
+| 11016	| 完全性右束支阻滞	| CRBBB(Complete Right Bundle Branch Block)	| BCRD (Bloqueo completo de rama derecha)	| BCBS (Blocco completo di branca destro)	| CRBBB (bloc de branche droit complet)	| CRBBB (kompletter Rechtsschenkelblock) |
+| 11100	| 心房扑动	| Atrial Flutter	| Aleteo auricular	| Flutter Atriale 	| Flutter auriculaire	| Vorhofflattern |
+| 11101	| 心房颤动	| Atrial Fibrillation	| Fibrilación auricular	| Fibrillazione Atriale	| Fibrillation auriculaire	| Vorhofflimmern |
+| 11102	| 房扑-房颤伴完全性右束支阻滞 	| AF Beat And Complete Right Bundle Branch Block	| Latido de FA y bloqueo completo de rama derecha	| Battito AF e blocco completo di branca destro	| Battement AF et bloc complet de la branche droite	| AF Schlag und kompletter Rechtsschenkelblock |
+| 11104	| 心室扑动	| Ventricular Flutter	| Aleteo ventricular	| Flutter Ventricolare	| Flutter ventriculaire	| Ventrikuläres Flattern |
+| 11105	| 心室颤动	| Ventricular Fibrillation	| Fibrilación ventricular	| Fibrillazione Ventricolare	| Fibrillation ventriculaire	| Ventrikuläres Flimmern |
+| 11200	| 非阵发性交界性心动过速	| Non-paroxysmal Supraventricular Tachycardia	| Taquicardia supraventricular no paroxística	| Tachicardia Sopraventricolare non parossimale	| Tachycardie supraventriculaire non paroxystique	| Nicht-paroxysmale supraventrikuläre Tachykardie |
+| 12000	| 二度Ⅰ型窦房阻滞（文氏型）	| 2nd Degree Sinoatrial Block, Mobitz I (Wenckebach)	| Bloqueo sinoauricular de segundo grado, Mobitz I (Wenckebach)	| Blocco sinoatriale di secondo grado, Mobitz I (Weckenbach)	| Bloc sino-auriculaire du 2e degré, Mobitz I (Wenckebach)	| Sinusblock 2. Grades, Mobitz I (Wenckebach) |
+| 12001	| 二度Ⅱ型窦房阻滞（莫氏型） 	| 2nd Degree Sinoatrial Block, Mobitz II	| Bloqueo sinoauricular de segundo grado, Mobitz II	| Blocco sinoatriale di secondo grado, Mobitz II	| Bloc sino-auriculaire du 2e degré, Mobitz II	| Sinusblock 2. Grades, Mobitz II |
+| 12002	| 二度Ⅰ型房室阻滞 （文氏型） 	| 2nd Degree Atrioventricular Block, Mobitz I (Wenckebach)	| Bloqueo auriculoventricular de segundo grado, Mobitz I (Wenckebach)	| Blocco atrioventricolare di secondo grado, Mobitz I (weckenbach)	| Bloc auriculo-ventriculaire de 2e degré, Mobitz I (Wenckebach)	| Atrioventrikulärer Block 2. Grades, Mobitz I (Wenckebach) |
+| 12003	| 二度Ⅱ型房室阻滞（莫氏型）	| 2nd Degree Atrioventricular Block, Mobitz II	| Bloqueo auriculoventricular de segundo grado, Mobitz II	| Blocco atrioventricolare di secondo grado, Mobitz II	| Bloc auriculo-ventriculaire de 2e degré, Mobitz II	| Atrioventrikulärer Block 2. Grades, Mobitz II |
+| 12004	| 高度房室阻滞	| High Atrioventricular Block	| Bloqueo auriculoventricular alto	| Blocco alto atrioventricolare	| Bloc auriculo-ventriculaire élevé	| Hoher atrioventrikulärer Block |
+| 12005	| 二度Ⅱ型（2：1）房室阻滞 	| 2:1 Atrioventricular Block	| Bloqueo auriculoventricular 2: 1	| 2:1 Blocco Atrioventricolare	| Bloc auriculo-ventriculaire 2:1	| 2:1 Atrioventrikulärer Block |
+| 12006	| 一度房室阻滞	| 1st Degree Atrioventricular Block	| Bloqueo auriculoventricular de primer grado	| Blocco Atrioventricolare di Primo Grado	| Bloc auriculo-ventriculaire du 1er degré	| Atrioventrikulärer Block 1. Grades |
+| 12007	| 三度房室阻滞	| Complete Atrioventricular Block	| Bloqueo auriculoventricular completo	| Blocco Atroventricolare Completo	| Bloc auriculo-ventriculaire complet	| Vollständiger atrioventrikulärer Block |
+| 12008	| 心室预激	| WPW Syndrome	| Síndrome de WPW	| Sindrome di WPW	| Syndrome de WPW	| WPW Syndrom |
+| 13000	| 整体最大心率	| Overall Max Heart Rate	| Frecuencia cardíaca máxima total	| Frequenza cardiaca massima comlessiva	| Fréquence cardiaque maximale globale	| Gesamte maximale Herzfrequenz |
+| 13001	| 整体最小心率	| Overall Min Heart Rate	| Frecuencia cardíaca mínima total	| Frequenza cardiaca minima comlessiva	| Fréquence cardiaque minimale globale	| Gesamte minimale Herzfrequenz |
+| 13002	| 最长RR间期	| Long RR Interval	| Intervalo RR largo	| Intervallo lungo RR	| Intervalle RR long	| Langer Blutdruck Intervall |
+| 13004	| 窦性最大心率	| Sinus Max Heart Rate	| Frecuencia cardíaca sinusal máxima	| frequenza cardiaca massima sinusale	| Fréquence cardiaque maximale sinusale	| Max Sinus Herzfrequenz |
+| 13005	| 窦性最小心率	| Sinus Min Heart Rate	| Frecuencia cardíaca sinusal mínima	| frequenza cardiaca minima sinusale	| Fréquence cardiaque minimale sinusale	| Min Sinus Herzfrequenz |
+| 13101	| 心动过速	| tachycardia	| taquicardia	| Tachicardia	| tachycardie	| Tachykardie |
+| 13102	| 心动过缓	| bradycardia	| bradicardia	| Bradicardia	| bradycardie	| Bradykardie |
+| 13003	| 停搏	| Asystole	| Asistolia	| Asistolia	| Asystole	| Asystolie |
+| 14001	| ST-T改变	| ST-T Change	| Cambio ST-T	| Variazione ST-T	| Changement de ST-T	| ST-T Änderung |
+| 14101	| 假长RR间期	| 	| 	| 	| 	| 
+
 #### Device type
 
 | device type | device name                   |
