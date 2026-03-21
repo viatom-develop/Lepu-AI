@@ -30,7 +30,8 @@
 
 ###### file
 ECG file is required to request AI-ECG analysis. You can use the ECG file download from our device or use our standard 1-lead .txt ECG format(English doc TBD).
-[sample ECG files](https://github.com/viatom-develop/Lepu-AI/tree/main/ecg_demo_file)
+[sample ECG files](https://github.com/viatom-develop/Lepu-AI/tree/main/ecg_demo_file).
+ECG files smaller than 1MB are considered short-range data, while those larger than 1MB are considered long-range data, each type of data will have its remaining count consumed during analysis.
 
 ###### ecg_info
 ```json
@@ -125,6 +126,7 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | 10010202 | ECG analysis failed.          |
 | 02000106 | ECG analysis abnormal, or the service is not available now.|
 | 10010105 | valid ecg data is not enough. |
+| 11110000 | Timeout failed(analysis not completed after 24 hours). |
 
 ```json
 {
@@ -290,6 +292,12 @@ ECG file is required to request AI-ECG analysis. You can use the ECG file downlo
 | it-IT    | Italian            |
 | es-ES    | Spanish            |
 | fr-FR    | French             |
+| ja-JP    | Japanese           |
+| nl-NL    | Netherlands        |
+| ro-RO    | Romanian           |
+| hu-HU    | Hungarian          |
+| pt-PT    | Portuguese         |
+| cs-CZ    | Czech              |
 
 #### AI-ECG diagnosis code
 | code	| Chinese	| English | Spanish	| Italian | French	| German |
