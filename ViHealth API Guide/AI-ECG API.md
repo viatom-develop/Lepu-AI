@@ -218,6 +218,12 @@ ECG files smaller than 1MB are considered short-range data, while those larger t
           "afInfo": {
               "afBeatPercent": 0
           },
+          "diagnoseList": [
+              {
+                  "code": "101",
+                  "diagnoseInfo": "Normal sinus rhythm"
+              }
+          ],
           "hrInfo": {
               "beatCount": 4290, // Total Heartbeats 
               "maxHeartRate": 91, // Average Heart Rate
