@@ -309,7 +309,6 @@ ECG files smaller than 1MB are considered short-range data, while those larger t
 | ----- | --------- | ------- |
 | code	| Chinese	| English |
 | 101	| 窦性心律	| Sinus Rhythm	|
-| 102	| 窦性心律+异位心律 | Sinus Rhythm plus Ectopic heart rhythm	|
 | 103	| 异位心律	| ectopic rhythm	|
 | 104	| 窦性心动过速	| Sinus Tachycardia	|
 | 105	| 窦性心动过缓	| Sinus Bradycardia	|
