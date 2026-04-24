@@ -306,6 +306,7 @@ ECG files smaller than 1MB are considered short-range data, while those larger t
 | cs-CZ    | Czech              |
 
 #### AI-ECG diagnosis code
+| ----- | --------- | ------- |
 | code	| Chinese	| English |
 | 101	| 窦性心律	| Sinus Rhythm	|
 | 102	| 窦性心律+异位心律 | Sinus Rhythm plus Ectopic heart rhythm	|
