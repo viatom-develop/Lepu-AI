@@ -326,9 +326,10 @@ ECG files smaller than 1MB are considered short-range data, while those larger t
 | 162	| 室性心动过速	| Ventricular Tachycardia	|
 | 171	| 心房扑动	| Atrial Flutter	|
 | 172	| 心房颤动	| Atrial Fibrillation	|
+| 185	| ST段改变	| ST Change	|
 | 901	| 数据质量差	| Poor data quality	|
 
-#### AI-ECG diagnosis code
+#### AI-ECG event code
 | code	| Chinese	| English | Spanish	| Italian | French	| German |
 | ----- | --------- | ------- | ------- | ------- | ---- | ---- |
 | 10000	| 室性早搏	| PVC(Premature Ventricular Contraction)	| CVP (contracción ventricular prematura)	| CVP (Contrazione Ventricolare Prematura)	| PVC (Contraction ventriculaire prématurée)	| VPB (Vorzeitige ventrikuläre Kontraktion) |
