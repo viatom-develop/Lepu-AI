@@ -306,6 +306,28 @@ ECG files smaller than 1MB are considered short-range data, while those larger t
 | cs-CZ    | Czech              |
 
 #### AI-ECG diagnosis code
+| code	| Chinese	| English |
+| 101	| 窦性心律	| Sinus Rhythm	|
+| 102	| 窦性心律+异位心律 | Sinus Rhythm plus Ectopic heart rhythm	|
+| 103	| 异位心律	| ectopic rhythm	|
+| 104	| 窦性心动过速	| Sinus Tachycardia	|
+| 105	| 窦性心动过缓	| Sinus Bradycardia	|
+| 121	| 停搏	| Asystole	|
+| 141	| 室上性早搏	| PAC(Premature Supraventricular Contraction)	|
+| 142	| 室性早搏	| PVC(Premature Ventricular Contraction)	|
+| 143	| 室上性早搏成对	| Couplet of PAC	|
+| 144	| 室性早搏成对	| Couplet of PVC	|
+| 151	| 室上性早搏三联律	| PAC Trigeminy	|
+| 152	| 室性早搏三联律	| PVC Trigeminy	|
+| 153	| 室上性早搏二联律	| PAC Bigeminy	|
+| 154	| 室性早搏二联律	| PVC Bigeminy	|
+| 161	| 室上性心动过速	| Supraventricular Tachycardia	|
+| 162	| 室性心动过速	| Ventricular Tachycardia	|
+| 171	| 心房扑动	| Atrial Flutter	|
+| 172	| 心房颤动	| Atrial Fibrillation	|
+| 901	| 数据质量差	| Poor data quality	|
+
+#### AI-ECG diagnosis code
 | code	| Chinese	| English | Spanish	| Italian | French	| German |
 | ----- | --------- | ------- | ------- | ------- | ---- | ---- |
 | 10000	| 室性早搏	| PVC(Premature Ventricular Contraction)	| CVP (contracción ventricular prematura)	| CVP (Contrazione Ventricolare Prematura)	| PVC (Contraction ventriculaire prématurée)	| VPB (Vorzeitige ventrikuläre Kontraktion) |
